@@ -21,7 +21,7 @@ export const products: Product[] = [
     pricePerSqft: 145,
     origin: "Andhra Pradesh",
     image:
-      "/granites/absolute-black.jpg",
+      "/gallery/Black_granite_slab_on_display_20261007200955.jpg",
     description:
       "Deep jet-black granite with unmatched density and low porosity. The workhorse for countertops, flooring and monuments.",
     applications: ["Kitchen Countertops", "Flooring", "Wall Cladding", "Monuments"],
@@ -36,7 +36,7 @@ export const products: Product[] = [
     pricePerSqft: 185,
     origin: "Andhra Pradesh",
     image:
-      "/granites/black-galaxy.jpg",
+      "/gallery/Black_granite_with_mineral_veins_20261007200955.jpg",
     description:
       "Iconic black granite with gold and white speckles resembling a starry galaxy. India's most exported stone.",
     applications: ["Countertops", "Lobby Flooring", "Reception Tables", "Export Slabs"],
@@ -51,7 +51,7 @@ export const products: Product[] = [
     pricePerSqft: 165,
     origin: "Karnataka",
     image:
-      "/granites/black-pearl.jpg",
+      "/gallery/Black_granite_mineral_veins_texture_20261007200955.jpg",
     description:
       "Black granite with silver-grey shimmer. A premium alternative to Galaxy for modern kitchens.",
     applications: ["Countertops", "Island Tops", "Staircase", "Elevation"],
@@ -65,7 +65,7 @@ export const products: Product[] = [
     pricePerSqft: 120,
     origin: "Tamil Nadu",
     image:
-      "/granites/kashmir-white.jpg",
+      "/gallery/Granite_slabs_displayed_in_showroom_20261007200955.jpg",
     description:
       "Elegant white-grey granite with dark speckles. Brightens kitchens and commercial lobbies.",
     applications: ["Flooring", "Countertops", "Hotels", "Apartments"],
@@ -79,7 +79,7 @@ export const products: Product[] = [
     pricePerSqft: 135,
     origin: "Tamil Nadu",
     image:
-      "/granites/viscon-white.jpg",
+      "/gallery/Granite_showroom_with_stone_slabs_20261007200955.jpg",
     description:
       "Milky-white granite with swirling grey veins. High-end look for villas and showrooms.",
     applications: ["Flooring", "Wall Panels", "Countertops", "TV Walls"],
@@ -94,7 +94,7 @@ export const products: Product[] = [
     pricePerSqft: 105,
     origin: "Rajasthan",
     image:
-      "/granites/moon-white.jpg",
+      "/gallery/Granite_samples_inside_showroom_20261007200955.jpg",
     description:
       "Soft white granite with fine grains. Budget-friendly for large residential flooring.",
     applications: ["Flooring", "Apartments", "Corridors", "Stairs"],
@@ -108,7 +108,7 @@ export const products: Product[] = [
     pricePerSqft: 115,
     origin: "Telangana",
     image:
-      "/granites/steel-grey.jpg",
+      "/gallery/Charcoal_granite_slabs_displayed_20261007200955.jpg",
     description:
       "Medium-grey granite with silver flecks. Outdoor-safe — ideal for paving and facades.",
     applications: ["Paving", "Facades", "Flooring", "Landscaping"],
@@ -122,7 +122,7 @@ export const products: Product[] = [
     pricePerSqft: 95,
     origin: "Karnataka",
     image:
-      "/granites/sira-grey.jpg",
+      "/gallery/Granite_slabs_in_stone_facility_20261007200955.jpg",
     description:
       "Light-grey uniform granite. Economical choice for commercial complexes and basements.",
     applications: ["Commercial Flooring", "Parking", "Steps", "Skirting"],
@@ -136,7 +136,7 @@ export const products: Product[] = [
     pricePerSqft: 135,
     origin: "Andhra Pradesh",
     image:
-      "/granites/tan-brown.jpg",
+      "/gallery/Granite_surface_showing_mineral_._20261007200955.jpg",
     description:
       "Rich brown-black granite with tan mineral deposits. High demand in USA & Europe.",
     applications: ["Countertops", "Flooring", "Export Slabs", "Vanities"],
@@ -151,7 +151,7 @@ export const products: Product[] = [
     pricePerSqft: 125,
     origin: "Andhra Pradesh",
     image:
-      "/granites/coffee-brown.jpg",
+      "/gallery/Granite_grains_macro_photograph_20261007200955.jpg",
     description:
       "Dark coffee-brown granite with black waves. Warm luxury for living rooms and bars.",
     applications: ["Flooring", "Bar Tops", "Fireplaces", "Tables"],
@@ -165,7 +165,7 @@ export const products: Product[] = [
     pricePerSqft: 110,
     origin: "Karnataka",
     image:
-      "/granites/desert-brown.jpg",
+      "/gallery/Granite_slabs_demonstrating_vein._20261007200955.jpg",
     description:
       "Sandy-brown granite with wavy patterns. Earthy tone for farmhouses and resorts.",
     applications: ["Resort Flooring", "Patios", "Cladding", "Decks"],
@@ -179,7 +179,7 @@ export const products: Product[] = [
     pricePerSqft: 155,
     origin: "Karnataka",
     image:
-      "/granites/imperial-red.jpg",
+      "/gallery/Polished_granite_surface_reflection_20261007200955.jpg",
     description:
       "Bold red-brown granite with black and grey grains. Statement flooring and facades.",
     applications: ["Facades", "Temples", "Lobby Flooring", "Entrances"],
@@ -193,7 +193,7 @@ export const products: Product[] = [
     pricePerSqft: 98,
     origin: "Tamil Nadu",
     image:
-      "/granites/red-multi.jpg",
+      "/gallery/Mineral_veins_in_black_granite_20261007200955.jpg",
     description:
       "Red-black-green multicolour granite. Vibrant and economical for temples and community halls.",
     applications: ["Temples", "Halls", "Flooring", "Platforms"],
@@ -207,7 +207,7 @@ export const products: Product[] = [
     pricePerSqft: 220,
     origin: "Exotic Range",
     image:
-      "/granites/blue-pearl.jpg",
+      "/gallery/Black_granite_kitchen_island_20261007200955.jpg",
     description:
       "Shimmering blue-silver feldspar crystals. Luxury kitchens, hotel lobbies and yachts.",
     applications: ["Luxury Kitchens", "Hotel Lobbies", "Yachts", "Feature Walls"],
@@ -222,7 +222,7 @@ export const products: Product[] = [
     pricePerSqft: 140,
     origin: "Karnataka",
     image:
-      "/granites/hassan-green.jpg",
+      "/gallery/Granite_slabs_in_modern_showroom_20261007200955.jpg",
     description:
       "Olive-green granite with moss-like texture. Distinctive for landscaping and accents.",
     applications: ["Landscaping", "Accent Walls", "Garden Benches", "Flooring"],
@@ -236,7 +236,7 @@ export const products: Product[] = [
     pricePerSqft: 150,
     origin: "Andhra Pradesh",
     image:
-      "/granites/kuppam-green.jpg",
+      "/gallery/Granite_showroom_interior_design._20261007200955.jpg",
     description:
       "Dark green granite with light-green veins. Premium export stone for Europe.",
     applications: ["Export Slabs", "Countertops", "Bathrooms", "Showrooms"],
@@ -250,7 +250,7 @@ export const products: Product[] = [
     pricePerSqft: 195,
     origin: "Andhra Pradesh",
     image:
-      "/granites/alaska-gold.jpg",
+      "/gallery/Polished_granite_mirror_reflection_20261007200955.jpg",
     description:
       "Golden-white exotic granite with dramatic veining. Premium villas and showrooms.",
     applications: ["Villa Flooring", "Showrooms", "Staircase", "Dining Tables"],
@@ -265,7 +265,7 @@ export const products: Product[] = [
     pricePerSqft: 130,
     origin: "Karnataka",
     image:
-      "/granites/crystal-yellow.jpg",
+      "/gallery/Granite_slabs_showing_polished_e._20261007200955.jpg",
     description:
       "Sunny yellow granite with brown speckles. Cheerful flooring for homes and schools.",
     applications: ["Home Flooring", "Schools", "Corridors", "Kitchen Slabs"],

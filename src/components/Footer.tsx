@@ -3,33 +3,45 @@ import { Mountain, Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#c9a227] text-black">
-              <Mountain size={20} />
+    <footer className="border-t border-[#c9a227]/10 bg-black">
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-4">
+        <div className="md:col-span-1">
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#c9a227] to-[#d4af6a] text-black">
+              <Mountain size={22} />
             </span>
-            <span className="text-lg font-extrabold">
+            <span className="text-xl font-extrabold">
               ASWAD <span className="text-[#d4af6a]">GRANITES</span>
             </span>
           </div>
-          <p className="mt-4 text-sm text-stone-400">
+          <p className="mt-5 text-sm leading-relaxed text-stone-400">
             Premium granite quarrying, processing and worldwide export since
             1998. 40+ colors, 12 quarries, 1 promise — lasting stone.
           </p>
+          <div className="mt-6 flex gap-3">
+            {["Facebook", "Instagram", "LinkedIn"].map((s) => (
+              <a
+                key={s}
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#c9a227]/20 text-stone-400 hover:border-[#c9a227] hover:text-[#d4af6a] transition-colors text-xs font-bold"
+              >
+                {s[0]}
+              </a>
+            ))}
+          </div>
         </div>
         <div>
-          <h4 className="font-bold text-sm uppercase tracking-wider text-stone-300">Company</h4>
-          <ul className="mt-3 space-y-2 text-sm text-stone-400">
-            <li><Link href="/about" className="hover:text-[#d4af6a]">About Us</Link></li>
-            <li><Link href="/products" className="hover:text-[#d4af6a]">Products</Link></li>
-            <li><Link href="/contact" className="hover:text-[#d4af6a]">Get Quote</Link></li>
+          <h4 className="font-bold text-sm uppercase tracking-wider text-[#d4af6a]">Company</h4>
+          <ul className="mt-4 space-y-3 text-sm text-stone-400">
+            <li><Link href="/about" className="hover:text-[#d4af6a] transition-colors">About Us</Link></li>
+            <li><Link href="/products" className="hover:text-[#d4af6a] transition-colors">Products</Link></li>
+            <li><Link href="/gallery" className="hover:text-[#d4af6a] transition-colors">Gallery</Link></li>
+            <li><Link href="/contact" className="hover:text-[#d4af6a] transition-colors">Get Quote</Link></li>
           </ul>
         </div>
         <div>
-          <h4 className="font-bold text-sm uppercase tracking-wider text-stone-300">Products</h4>
-          <ul className="mt-3 space-y-2 text-sm text-stone-400">
+          <h4 className="font-bold text-sm uppercase tracking-wider text-[#d4af6a]">Products</h4>
+          <ul className="mt-4 space-y-3 text-sm text-stone-400">
             <li>Granite Slabs</li>
             <li>Floor Tiles & Cut-to-Size</li>
             <li>Kitchen Countertops</li>
@@ -37,17 +49,16 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className="font-bold text-sm uppercase tracking-wider text-stone-300">Contact</h4>
-          <ul className="mt-3 space-y-2 text-sm text-stone-400">
-            <li className="flex gap-2"><Phone size={16}/> +91 98480 00000</li>
-            <li className="flex gap-2"><Mail size={16}/> sales@aswadgranites.com</li>
-            <li className="flex gap-2"><MapPin size={16}/> Ongole, Andhra Pradesh, India</li>
+          <h4 className="font-bold text-sm uppercase tracking-wider text-[#d4af6a]">Contact</h4>
+          <ul className="mt-4 space-y-3 text-sm text-stone-400">
+            <li className="flex gap-3"><Phone size={16} className="text-[#d4af6a] shrink-0" /> +91 98480 00000</li>
+            <li className="flex gap-3"><Mail size={16} className="text-[#d4af6a] shrink-0" /> sales@aswadgranites.com</li>
+            <li className="flex gap-3"><MapPin size={16} className="text-[#d4af6a] shrink-0" /> Ongole, Andhra Pradesh, India</li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10 py-4 text-center text-xs text-stone-500">
-        © {new Date().getFullYear()} Aswad Granites — Demo website built with Next.js. All prices in INR / sq.ft indicative.
-        <span className="block mt-1">Stone photography: Wikimedia Commons contributors (CC BY-SA), Pexels & Flickr contributors.</span>
+      <div className="border-t border-white/5 py-6 text-center text-xs text-stone-500">
+        © {new Date().getFullYear()} Aswad Granites — Premium Natural Stone. All rights reserved.
       </div>
     </footer>
   );

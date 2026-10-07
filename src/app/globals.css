@@ -12,13 +12,13 @@ html {
 }
 
 body {
-  background: #fafaf9;
-  color: #1c1917;
+  background: #0c0a09;
+  color: #fafaf9;
   font-family: var(--font-sans);
 }
 
 .text-gold {
-  color: #8a6d1f;
+  color: #d4af6a;
 }
 .bg-gold {
   background-color: #c9a227;
@@ -26,20 +26,95 @@ body {
 
 .hero-texture {
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(201, 162, 39, 0.18), transparent 45%),
-    radial-gradient(circle at 80% 70%, rgba(201, 162, 39, 0.1), transparent 40%),
-    linear-gradient(180deg, #fffdf5, #faf7ef);
+    radial-gradient(circle at 20% 30%, rgba(201, 162, 39, 0.12), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.04), transparent 40%),
+    linear-gradient(180deg, rgba(0,0,0,0.7), rgba(12,10,9,0.95));
 }
 
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
 }
 .card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px -15px rgba(138, 109, 31, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(201, 162, 39, 0.2);
+}
+
+.gallery-item {
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 ::selection {
   background: #c9a227;
   color: #000;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0a09;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9a227;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af6a;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Gold gradient text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #d4af6a, #c9a227, #d4af6a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(12, 10, 9, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 162, 39, 0.15);
+}
+
+/* Image overlay gradient */
+.img-overlay {
+  background: linear-gradient(to top, rgba(12, 10, 9, 0.9) 0%, transparent 60%);
 }
