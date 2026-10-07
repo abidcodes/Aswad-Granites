@@ -21,16 +21,16 @@ export default function QuoteCalculator() {
   const total = Math.round(product.pricePerSqft * area * thicknessMult * finishMult);
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-stone-900 p-6 shadow-2xl">
+    <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-2xl">
       <div className="flex items-center gap-2 font-bold">
-        <Calculator className="text-[#d4af6a]" /> Project Estimator <span className="ml-auto rounded-full bg-white/10 px-2 py-0.5 text-[11px] text-stone-300">DEMO</span>
+        <Calculator className="text-[#8a6d1f]" /> Project Estimator <span className="ml-auto rounded-full bg-stone-900/5 px-2 py-0.5 text-[11px] text-stone-600">DEMO</span>
       </div>
 
-      <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-stone-400">Stone</label>
+      <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-stone-500">Stone</label>
       <select
         value={productId}
         onChange={(e) => setProductId(e.target.value)}
-        className="mt-1 w-full rounded-lg border border-white/10 bg-stone-950 p-2.5 text-sm"
+        className="mt-1 w-full rounded-lg border border-stone-200 bg-stone-50 p-2.5 text-sm"
       >
         {products.map((p) => (
           <option key={p.id} value={p.id}>
@@ -39,7 +39,7 @@ export default function QuoteCalculator() {
         ))}
       </select>
 
-      <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-stone-400">
+      <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-stone-500">
         Area: {area} sq.ft
       </label>
       <input
@@ -54,14 +54,14 @@ export default function QuoteCalculator() {
 
       <div className="mt-4 grid grid-cols-2 gap-3">
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-stone-400">Thickness</label>
+          <label className="block text-xs font-bold uppercase tracking-wider text-stone-500">Thickness</label>
           <div className="mt-1 flex gap-1">
             {["15mm", "20mm", "30mm"].map((t) => (
               <button
                 key={t}
                 onClick={() => setThickness(t)}
                 className={`flex-1 rounded-lg px-2 py-2 text-xs font-bold ${
-                  thickness === t ? "bg-[#c9a227] text-black" : "bg-white/10 text-stone-300"
+                  thickness === t ? "bg-[#c9a227] text-black" : "bg-stone-900/5 text-stone-600"
                 }`}
               >
                 {t}
@@ -70,14 +70,14 @@ export default function QuoteCalculator() {
           </div>
         </div>
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-stone-400">Finish</label>
+          <label className="block text-xs font-bold uppercase tracking-wider text-stone-500">Finish</label>
           <div className="mt-1 flex gap-1">
             {["Polished", "Honed", "Flamed"].map((f) => (
               <button
                 key={f}
                 onClick={() => setFinish(f)}
                 className={`flex-1 rounded-lg px-1 py-2 text-xs font-bold ${
-                  finish === f ? "bg-[#c9a227] text-black" : "bg-white/10 text-stone-300"
+                  finish === f ? "bg-[#c9a227] text-black" : "bg-stone-900/5 text-stone-600"
                 }`}
               >
                 {f}
@@ -87,9 +87,9 @@ export default function QuoteCalculator() {
         </div>
       </div>
 
-      <div className="mt-6 rounded-xl bg-black/40 p-4 text-center border border-[#c9a227]/30">
-        <div className="text-xs uppercase tracking-widest text-stone-400">Indicative Total</div>
-        <div className="text-3xl font-extrabold text-[#d4af6a]">₹{total.toLocaleString("en-IN")}</div>
+      <div className="mt-6 rounded-xl bg-amber-50 p-4 text-center border border-[#c9a227]/30">
+        <div className="text-xs uppercase tracking-widest text-stone-500">Indicative Total</div>
+        <div className="text-3xl font-extrabold text-[#8a6d1f]">₹{total.toLocaleString("en-IN")}</div>
         <div className="text-xs text-stone-500 mt-1">
           {area} sq.ft × ₹{product.pricePerSqft} × {thickness} × {finish}
         </div>

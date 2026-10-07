@@ -14,7 +14,7 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-stone-950/90 backdrop-blur">
+    <header className="fixed top-0 inset-x-0 z-50 border-b border-stone-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-2">
           <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#c9a227] text-black">
@@ -22,9 +22,9 @@ export default function Navbar() {
           </span>
           <span className="leading-tight">
             <span className="block text-lg font-extrabold tracking-wide">
-              ASWAD <span className="text-[#d4af6a]">GRANITES</span>
+              ASWAD <span className="text-[#8a6d1f]">GRANITES</span>
             </span>
-            <span className="block text-[11px] uppercase tracking-[0.25em] text-stone-400">
+            <span className="block text-[11px] uppercase tracking-[0.25em] text-stone-500">
               Quarry • Process • Export
             </span>
           </span>
@@ -35,7 +35,7 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-stone-300 hover:text-[#d4af6a]"
+              className="text-sm font-medium text-stone-600 hover:text-[#8a6d1f]"
             >
               {l.label}
             </Link>
@@ -49,7 +49,7 @@ export default function Navbar() {
         </nav>
 
         <button
-          className="md:hidden text-stone-200"
+          className="md:hidden text-stone-700"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -57,14 +57,14 @@ export default function Navbar() {
         </button>
       </div>
       {open && (
-        <div className="border-t border-white/10 bg-stone-950 px-4 py-4 md:hidden">
+        <div className="border-t border-stone-200 bg-stone-50 px-4 py-4 md:hidden">
           <div className="flex flex-col gap-3">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-2 py-2 text-stone-200 hover:bg-white/5"
+                className="rounded-lg px-2 py-2 text-stone-700 hover:bg-stone-100"
               >
                 {l.label}
               </Link>

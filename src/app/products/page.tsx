@@ -19,13 +19,13 @@ export default function ProductsPage() {
 
   return (
     <div className="pt-[68px]">
-      <div className="hero-texture border-b border-white/10">
+      <div className="hero-texture border-b border-stone-200">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a]">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">
             Our Granite Library
           </p>
           <h1 className="mt-2 text-4xl font-extrabold">Products</h1>
-          <p className="mt-2 max-w-2xl text-stone-400">
+          <p className="mt-2 max-w-2xl text-stone-500">
             {products.length} signature stones — Black, White, Grey, Brown, Red,
             Blue, Green & Gold. Slabs (2cm / 3cm), tiles, cut-to-size and
             countertops. Click any stone for sizes & applications.
@@ -35,7 +35,7 @@ export default function ProductsPage() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search e.g. Galaxy, White, Ongole..."
-              className="w-full max-w-sm rounded-full border border-white/15 bg-black/50 px-5 py-2.5 text-sm outline-none focus:border-[#c9a227]"
+              className="w-full max-w-sm rounded-full border border-stone-300 bg-white px-5 py-2.5 text-sm outline-none focus:border-[#c9a227]"
             />
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
@@ -46,7 +46,7 @@ export default function ProductsPage() {
                 className={`rounded-full px-4 py-1.5 text-sm font-bold ${
                   cat === c
                     ? "bg-[#c9a227] text-black"
-                    : "bg-white/10 text-stone-300 hover:bg-white/20"
+                    : "bg-stone-900/5 text-stone-600 hover:bg-stone-900/10"
                 }`}
               >
                 {c}
@@ -66,7 +66,7 @@ export default function ProductsPage() {
             <Link
               key={p.id}
               href={`/products/${p.id}`}
-              className="card-hover group overflow-hidden rounded-2xl border border-white/10 bg-stone-900"
+              className="card-hover group overflow-hidden rounded-2xl border border-stone-200 bg-white"
             >
               <div className="relative h-64 overflow-hidden">
                 <Image
@@ -82,31 +82,31 @@ export default function ProductsPage() {
                 )}
               </div>
               <div className="p-5">
-                <div className="text-[11px] uppercase tracking-widest text-[#d4af6a] font-bold">
+                <div className="text-[11px] uppercase tracking-widest text-[#8a6d1f] font-bold">
                   {p.category} • {p.origin}
                 </div>
                 <h3 className="mt-1 flex items-center justify-between text-xl font-bold">
                   {p.name}
                   <ArrowRight
                     size={18}
-                    className="text-stone-600 transition group-hover:translate-x-1 group-hover:text-[#d4af6a]"
+                    className="text-stone-600 transition group-hover:translate-x-1 group-hover:text-[#8a6d1f]"
                   />
                 </h3>
-                <p className="mt-2 line-clamp-2 text-sm text-stone-400">
+                <p className="mt-2 line-clamp-2 text-sm text-stone-500">
                   {p.description}
                 </p>
                 <div className="mt-3 flex flex-wrap gap-1">
                   {p.finish.map((f) => (
                     <span
                       key={f}
-                      className="rounded-full bg-white/10 px-2.5 py-0.5 text-[11px] text-stone-300"
+                      className="rounded-full bg-stone-900/5 px-2.5 py-0.5 text-[11px] text-stone-600"
                     >
                       {f}
                     </span>
                   ))}
                 </div>
-                <div className="mt-4 flex items-center justify-between border-t border-white/10 pt-4">
-                  <span className="text-lg font-extrabold text-[#d4af6a]">
+                <div className="mt-4 flex items-center justify-between border-t border-stone-200 pt-4">
+                  <span className="text-lg font-extrabold text-[#8a6d1f]">
                     ₹{p.pricePerSqft}/sq.ft
                   </span>
                   <span className="text-xs text-stone-500">
