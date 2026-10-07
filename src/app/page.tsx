@@ -30,18 +30,18 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-stone-950/60 via-stone-950/40 to-stone-950" />
         </div>
         <div className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6">
-          <span className="inline-block rounded-full border border-[#c9a227]/30 bg-[#c9a227]/10 px-5 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f] backdrop-blur-sm">
+          <span className="inline-block rounded-full border border-[#c9a227]/40 bg-black/40 px-5 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a] backdrop-blur-sm">
             Since 1998 • 28 Years of Excellence
           </span>
-          <h1 className="mt-6 text-5xl font-extrabold leading-tight sm:text-7xl lg:text-8xl">
+          <h1 className="mt-6 text-5xl font-extrabold leading-tight text-white sm:text-7xl lg:text-8xl">
             Stone That
-            <span className="block gold-gradient-text">Speaks Luxury</span>
+            <span className="block bg-gradient-to-r from-[#f0d896] via-[#d4af6a] to-[#f0d896] bg-clip-text text-transparent">Speaks Luxury</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-stone-600 sm:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-stone-300 sm:text-xl">
             From our quarries to your masterpiece — world-class granite,
             precision-cut and exported to 30+ countries.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/products"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#c9a227] to-[#d4af6a] px-8 py-4 font-bold text-black shadow-2xl shadow-[#c9a227]/30 hover:shadow-[#c9a227]/50 hover:scale-105 transition-all"
@@ -50,20 +50,20 @@ export default function Home() {
             </Link>
             <Link
               href="/gallery"
-              className="rounded-full border border-stone-300 px-8 py-4 font-bold text-stone-900 backdrop-blur-sm hover:border-[#c9a227] hover:text-[#8a6d1f] transition-all"
+              className="rounded-full border border-white/40 px-8 py-4 font-bold text-white backdrop-blur-sm hover:border-[#d4af6a] hover:text-[#d4af6a] transition-all"
             >
               View Gallery
             </Link>
           </div>
-          <div className="mt-16 grid max-w-lg grid-cols-3 gap-6 border-t border-stone-200 pt-8">
+          <div className="mt-10 grid max-w-lg grid-cols-3 gap-6 border-t border-white/20 pb-16 pt-6">
             {[
               ["40+", "Stone Colors"],
               ["30+", "Countries"],
               ["2M+", "Sq.ft / Year"],
             ].map(([n, l]) => (
               <div key={l}>
-                <div className="text-3xl font-extrabold text-[#8a6d1f]">{n}</div>
-                <div className="text-xs uppercase tracking-wider text-stone-400">{l}</div>
+                <div className="text-3xl font-extrabold text-[#d4af6a]">{n}</div>
+                <div className="text-xs uppercase tracking-wider text-stone-300">{l}</div>
               </div>
             ))}
           </div>

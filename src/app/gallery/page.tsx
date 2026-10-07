@@ -93,11 +93,11 @@ export default function GalleryPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-sm font-medium text-stone-900">{img.alt}</p>
-                <span className="text-xs text-[#8a6d1f] capitalize">{img.category}</span>
+                <p className="text-sm font-medium text-white">{img.alt}</p>
+                <span className="text-xs text-[#d4af6a] capitalize">{img.category}</span>
               </div>
               <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-950/50 text-stone-900 backdrop-blur-sm">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm">
                   <ZoomIn size={16} />
                 </span>
               </div>
@@ -109,18 +109,18 @@ export default function GalleryPage() {
       {/* Lightbox */}
       {lightbox !== null && filtered[lightbox] && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-stone-950/95 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm"
           onClick={closeLightbox}
         >
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-stone-900/5 text-stone-900 hover:bg-stone-900/10 transition-colors"
+            className="absolute top-4 right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
           >
             <X size={24} />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); goPrev(); }}
-            className="absolute left-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-stone-900/5 text-stone-900 hover:bg-stone-900/10 transition-colors"
+            className="absolute left-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
           >
             <ChevronLeft size={24} />
           </button>

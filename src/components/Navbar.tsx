@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, Mountain } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   { href: "/", label: "Home" },
@@ -26,20 +27,26 @@ export default function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "border-b border-[#c9a227]/20 bg-white/95 backdrop-blur-xl shadow-lg shadow-black/20"
+          ? "border-b border-[#c9a227]/20 bg-white/95 backdrop-blur-xl shadow-lg shadow-black/10"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         <Link href="/" className="flex items-center gap-3 group">
-          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#c9a227] to-[#d4af6a] text-black shadow-lg shadow-[#c9a227]/20 group-hover:shadow-[#c9a227]/40 transition-shadow">
-            <Mountain size={24} strokeWidth={2.5} />
-          </span>
+          <div className="h-11 w-11 overflow-hidden rounded-xl shadow-lg shadow-[#c9a227]/20 group-hover:shadow-[#c9a227]/40 transition-shadow">
+            <Image
+              src="/logo.jpg"
+              alt="ASWAD Granite Industries"
+              width={44}
+              height={44}
+              className="h-full w-full object-cover"
+            />
+          </div>
           <span className="leading-tight">
-            <span className="block text-xl font-extrabold tracking-wide">
-              ASWAD <span className="text-[#8a6d1f]">GRANITES</span>
+            <span className={`block text-xl font-extrabold tracking-wide transition-colors ${scrolled ? "text-stone-900" : "text-white"}`}>
+              ASWAD <span className={scrolled ? "text-[#8a6d1f]" : "text-[#d4af6a]"}>GRANITES</span>
             </span>
-            <span className="block text-[10px] uppercase tracking-[0.3em] text-stone-400">
+            <span className={`block text-[10px] uppercase tracking-[0.3em] transition-colors ${scrolled ? "text-stone-500" : "text-stone-300"}`}>
               Premium Natural Stone
             </span>
           </span>
@@ -50,7 +57,7 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="relative text-sm font-medium text-stone-600 hover:text-[#8a6d1f] transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-[#c9a227] after:transition-all hover:after:w-full"
+              className={`relative text-sm font-medium transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-[#c9a227] after:transition-all hover:after:w-full ${scrolled ? "text-stone-600 hover:text-[#8a6d1f]" : "text-white hover:text-[#d4af6a]"}`}
             >
               {l.label}
             </Link>
@@ -64,7 +71,7 @@ export default function Navbar() {
         </nav>
 
         <button
-          className="lg:hidden text-stone-700 p-2"
+          className={`lg:hidden p-2 transition-colors ${scrolled ? "text-stone-700" : "text-white"}`}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -72,14 +79,14 @@ export default function Navbar() {
         </button>
       </div>
       {open && (
-        <div className="border-t border-[#c9a227]/10 bg-stone-50/98 backdrop-blur-xl px-4 py-6 lg:hidden">
+        <div className="border-t border-[#c9a227]/10 bg-white/98 backdrop-blur-xl px-4 py-6 lg:hidden">
           <div className="flex flex-col gap-4">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-4 py-3 text-stone-700 hover:bg-stone-900/5 hover:text-[#8a6d1f] transition-colors"
+                className="rounded-lg px-4 py-3 text-stone-700 hover:bg-stone-100 hover:text-[#8a6d1f] transition-colors"
               >
                 {l.label}
               </Link>
