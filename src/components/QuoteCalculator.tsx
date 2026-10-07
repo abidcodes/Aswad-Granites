@@ -26,7 +26,7 @@ export default function QuoteCalculator() {
         <Calculator className="text-[#8a6d1f]" /> Project Estimator <span className="ml-auto rounded-full bg-stone-900/5 px-2 py-0.5 text-[11px] text-stone-600">DEMO</span>
       </div>
 
-      <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-stone-500">Stone</label>
+      <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-stone-400">Stone</label>
       <select
         value={productId}
         onChange={(e) => setProductId(e.target.value)}
@@ -39,7 +39,7 @@ export default function QuoteCalculator() {
         ))}
       </select>
 
-      <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-stone-500">
+      <label className="mt-4 block text-xs font-bold uppercase tracking-wider text-stone-400">
         Area: {area} sq.ft
       </label>
       <input
@@ -54,7 +54,7 @@ export default function QuoteCalculator() {
 
       <div className="mt-4 grid grid-cols-2 gap-3">
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-stone-500">Thickness</label>
+          <label className="block text-xs font-bold uppercase tracking-wider text-stone-400">Thickness</label>
           <div className="mt-1 flex gap-1">
             {["15mm", "20mm", "30mm"].map((t) => (
               <button
@@ -70,7 +70,7 @@ export default function QuoteCalculator() {
           </div>
         </div>
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-stone-500">Finish</label>
+          <label className="block text-xs font-bold uppercase tracking-wider text-stone-400">Finish</label>
           <div className="mt-1 flex gap-1">
             {["Polished", "Honed", "Flamed"].map((f) => (
               <button
@@ -88,9 +88,9 @@ export default function QuoteCalculator() {
       </div>
 
       <div className="mt-6 rounded-xl bg-amber-50 p-4 text-center border border-[#c9a227]/30">
-        <div className="text-xs uppercase tracking-widest text-stone-500">Indicative Total</div>
+        <div className="text-xs uppercase tracking-widest text-stone-400">Indicative Total</div>
         <div className="text-3xl font-extrabold text-[#8a6d1f]">₹{total.toLocaleString("en-IN")}</div>
-        <div className="text-xs text-stone-500 mt-1">
+        <div className="text-xs text-stone-400 mt-1">
           {area} sq.ft × ₹{product.pricePerSqft} × {thickness} × {finish}
         </div>
       </div>

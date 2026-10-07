@@ -31,7 +31,7 @@ export default function ProductsPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-stone-950/70 to-stone-950" />
         </div>
         <div className="relative z-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a]">Our Granite Library</p>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">Our Granite Library</p>
           <h1 className="mt-2 text-4xl font-extrabold sm:text-6xl">Products</h1>
           <p className="mx-auto mt-3 max-w-2xl px-4 text-stone-400">
             {products.length} signature stones — Black, White, Grey, Brown, Red, Blue, Green & Gold.
@@ -43,12 +43,12 @@ export default function ProductsPage() {
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
         <div className="flex flex-wrap items-center gap-3">
           <div className="relative flex-1 max-w-sm">
-            <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-500" />
+            <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search granite..."
-              className="w-full rounded-full border border-white/10 bg-stone-900 py-3 pl-11 pr-4 text-sm outline-none focus:border-[#c9a227] transition-colors"
+              className="w-full rounded-full border border-stone-200 bg-white py-3 pl-11 pr-4 text-sm outline-none focus:border-[#c9a227] transition-colors"
             />
           </div>
           <div className="flex flex-wrap gap-2">
@@ -59,7 +59,7 @@ export default function ProductsPage() {
                 className={`rounded-full px-5 py-2 text-sm font-bold transition-all ${
                   cat === c
                     ? "bg-gradient-to-r from-[#c9a227] to-[#d4af6a] text-black shadow-lg shadow-[#c9a227]/20"
-                    : "bg-white/5 text-stone-300 hover:bg-white/10"
+                    : "bg-stone-900/5 text-stone-600 hover:bg-stone-900/5"
                 }`}
               >
                 {c}
@@ -71,7 +71,7 @@ export default function ProductsPage() {
 
       {/* Grid */}
       <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6">
-        <p className="text-sm text-stone-500">
+        <p className="text-sm text-stone-400">
           {filtered.length} of {products.length} products
           {cat !== "All" ? ` in ${cat}` : ""}
         </p>
@@ -80,7 +80,7 @@ export default function ProductsPage() {
             <Link
               key={p.id}
               href={`/products/${p.id}`}
-              className="card-hover group overflow-hidden rounded-2xl border border-white/10 bg-stone-900 hover:border-[#c9a227]/30"
+              className="card-hover group overflow-hidden rounded-2xl border border-stone-200 bg-white hover:border-[#c9a227]/30"
             >
               <div className="relative h-72 overflow-hidden">
                 <Image
@@ -97,29 +97,29 @@ export default function ProductsPage() {
                 <div className="absolute inset-0 img-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div className="p-5">
-                <div className="text-[11px] uppercase tracking-widest text-[#d4af6a] font-bold">
+                <div className="text-[11px] uppercase tracking-widest text-[#8a6d1f] font-bold">
                   {p.category} • {p.origin}
                 </div>
-                <h3 className="mt-1 flex items-center justify-between text-xl font-bold group-hover:text-[#d4af6a] transition-colors">
+                <h3 className="mt-1 flex items-center justify-between text-xl font-bold group-hover:text-[#8a6d1f] transition-colors">
                   {p.name}
-                  <ArrowRight size={18} className="text-stone-600 group-hover:text-[#d4af6a] group-hover:translate-x-1 transition-all" />
+                  <ArrowRight size={18} className="text-stone-600 group-hover:text-[#8a6d1f] group-hover:translate-x-1 transition-all" />
                 </h3>
                 <p className="mt-2 line-clamp-2 text-sm text-stone-400">{p.description}</p>
                 <div className="mt-3 flex flex-wrap gap-1">
                   {p.finish.map((f) => (
-                    <span key={f} className="rounded-full bg-white/5 px-2.5 py-0.5 text-[11px] text-stone-400">{f}</span>
+                    <span key={f} className="rounded-full bg-stone-900/5 px-2.5 py-0.5 text-[11px] text-stone-400">{f}</span>
                   ))}
                 </div>
-                <div className="mt-4 flex items-center justify-between border-t border-white/5 pt-4">
-                  <span className="text-lg font-extrabold text-[#d4af6a]">₹{p.pricePerSqft}/sq.ft</span>
-                  <span className="text-xs text-stone-500">{p.sizes[0]}</span>
+                <div className="mt-4 flex items-center justify-between border-t border-stone-200 pt-4">
+                  <span className="text-lg font-extrabold text-[#8a6d1f]">₹{p.pricePerSqft}/sq.ft</span>
+                  <span className="text-xs text-stone-400">{p.sizes[0]}</span>
                 </div>
               </div>
             </Link>
           ))}
         </div>
         {filtered.length === 0 && (
-          <p className="mt-10 text-center text-stone-500">No stones match your filter. Try another search.</p>
+          <p className="mt-10 text-center text-stone-400">No stones match your filter. Try another search.</p>
         )}
       </section>
     </div>

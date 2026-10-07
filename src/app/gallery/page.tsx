@@ -48,7 +48,7 @@ export default function GalleryPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-stone-950/70 to-stone-950" />
         </div>
         <div className="relative z-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a]">Our Work</p>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">Our Work</p>
           <h1 className="mt-2 text-4xl font-extrabold sm:text-6xl">Gallery</h1>
           <p className="mx-auto mt-3 max-w-2xl px-4 text-stone-400">
             {galleryImages.length}+ photos from our factory, showroom, and projects worldwide.
@@ -66,7 +66,7 @@ export default function GalleryPage() {
               className={`rounded-full px-5 py-2 text-sm font-bold transition-all ${
                 cat === c
                   ? "bg-gradient-to-r from-[#c9a227] to-[#d4af6a] text-black shadow-lg shadow-[#c9a227]/20"
-                  : "bg-white/5 text-stone-300 hover:bg-white/10"
+                  : "bg-stone-900/5 text-stone-600 hover:bg-stone-900/5"
               }`}
             >
               {c}
@@ -81,7 +81,7 @@ export default function GalleryPage() {
           {filtered.map((img, i) => (
             <div
               key={img.src}
-              className="gallery-item relative mb-4 break-inside-avoid overflow-hidden rounded-xl border border-white/10 cursor-pointer group"
+              className="gallery-item relative mb-4 break-inside-avoid overflow-hidden rounded-xl border border-stone-200 cursor-pointer group"
               onClick={() => setLightbox(i)}
             >
               <Image
@@ -93,11 +93,11 @@ export default function GalleryPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-sm font-medium text-white">{img.alt}</p>
-                <span className="text-xs text-[#d4af6a] capitalize">{img.category}</span>
+                <p className="text-sm font-medium text-stone-900">{img.alt}</p>
+                <span className="text-xs text-[#8a6d1f] capitalize">{img.category}</span>
               </div>
               <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-stone-950/50 text-stone-900 backdrop-blur-sm">
                   <ZoomIn size={16} />
                 </span>
               </div>
@@ -109,24 +109,24 @@ export default function GalleryPage() {
       {/* Lightbox */}
       {lightbox !== null && filtered[lightbox] && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-stone-950/95 backdrop-blur-sm"
           onClick={closeLightbox}
         >
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            className="absolute top-4 right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-stone-900/5 text-stone-900 hover:bg-stone-900/10 transition-colors"
           >
             <X size={24} />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); goPrev(); }}
-            className="absolute left-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            className="absolute left-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-stone-900/5 text-stone-900 hover:bg-stone-900/10 transition-colors"
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); goNext(); }}
-            className="absolute right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            className="absolute right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-stone-900/5 text-stone-900 hover:bg-stone-900/10 transition-colors"
           >
             <ChevronRight size={24} />
           </button>
@@ -138,7 +138,7 @@ export default function GalleryPage() {
               height={800}
               className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg"
             />
-            <p className="mt-4 text-center text-sm text-stone-300">{filtered[lightbox].alt}</p>
+            <p className="mt-4 text-center text-sm text-stone-600">{filtered[lightbox].alt}</p>
           </div>
         </div>
       )}

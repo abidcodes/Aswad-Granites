@@ -26,7 +26,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "border-b border-[#c9a227]/20 bg-stone-950/95 backdrop-blur-xl shadow-lg shadow-black/20"
+          ? "border-b border-[#c9a227]/20 bg-white/95 backdrop-blur-xl shadow-lg shadow-black/20"
           : "bg-transparent"
       }`}
     >
@@ -37,7 +37,7 @@ export default function Navbar() {
           </span>
           <span className="leading-tight">
             <span className="block text-xl font-extrabold tracking-wide">
-              ASWAD <span className="text-[#d4af6a]">GRANITES</span>
+              ASWAD <span className="text-[#8a6d1f]">GRANITES</span>
             </span>
             <span className="block text-[10px] uppercase tracking-[0.3em] text-stone-400">
               Premium Natural Stone
@@ -50,7 +50,7 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
-              className="relative text-sm font-medium text-stone-300 hover:text-[#d4af6a] transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-[#c9a227] after:transition-all hover:after:w-full"
+              className="relative text-sm font-medium text-stone-600 hover:text-[#8a6d1f] transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-[#c9a227] after:transition-all hover:after:w-full"
             >
               {l.label}
             </Link>
@@ -64,7 +64,7 @@ export default function Navbar() {
         </nav>
 
         <button
-          className="lg:hidden text-stone-200 p-2"
+          className="lg:hidden text-stone-700 p-2"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -72,14 +72,14 @@ export default function Navbar() {
         </button>
       </div>
       {open && (
-        <div className="border-t border-[#c9a227]/10 bg-stone-950/98 backdrop-blur-xl px-4 py-6 lg:hidden">
+        <div className="border-t border-[#c9a227]/10 bg-stone-50/98 backdrop-blur-xl px-4 py-6 lg:hidden">
           <div className="flex flex-col gap-4">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-4 py-3 text-stone-200 hover:bg-white/5 hover:text-[#d4af6a] transition-colors"
+                className="rounded-lg px-4 py-3 text-stone-700 hover:bg-stone-900/5 hover:text-[#8a6d1f] transition-colors"
               >
                 {l.label}
               </Link>

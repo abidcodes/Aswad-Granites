@@ -16,7 +16,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-stone-950/70 to-stone-950" />
         </div>
         <div className="relative z-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a]">Since 1998</p>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">Since 1998</p>
           <h1 className="mt-2 text-4xl font-extrabold sm:text-6xl">About Us</h1>
           <p className="mx-auto mt-3 max-w-2xl px-4 text-stone-400">
             From a single quarry to 12 quarries and exports to 30+ countries.
@@ -28,7 +28,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a]">Our Story</p>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">Our Story</p>
             <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">
               28 Years of Crafting Stone
             </h2>
@@ -50,16 +50,16 @@ export default function AboutPage() {
                 { icon: Users, n: "850+", l: "Team Members" },
                 { icon: Globe, n: "30+", l: "Export Countries" },
               ].map((s) => (
-                <div key={s.l} className="rounded-xl border border-white/10 bg-stone-900 p-4">
-                  <s.icon size={24} className="text-[#d4af6a]" />
+                <div key={s.l} className="rounded-xl border border-stone-200 bg-white p-4">
+                  <s.icon size={24} className="text-[#8a6d1f]" />
                   <div className="mt-2 text-2xl font-extrabold">{s.n}</div>
-                  <div className="text-xs text-stone-500">{s.l}</div>
+                  <div className="text-xs text-stone-400">{s.l}</div>
                 </div>
               ))}
             </div>
           </div>
           <div className="space-y-4">
-            <div className="overflow-hidden rounded-2xl border border-white/10">
+            <div className="overflow-hidden rounded-2xl border border-stone-200">
               <Image
                 src="/gallery/Granite_factory_interior_with_ma._20261007200955.jpg"
                 alt="Factory interior"
@@ -68,7 +68,7 @@ export default function AboutPage() {
                 className="h-64 w-full object-cover"
               />
             </div>
-            <div className="overflow-hidden rounded-2xl border border-white/10">
+            <div className="overflow-hidden rounded-2xl border border-stone-200">
               <Image
                 src="/gallery/Team_standing_in_stone_showroom_20261007200955.jpg"
                 alt="Our team"
@@ -82,9 +82,9 @@ export default function AboutPage() {
       </section>
 
       {/* Infrastructure */}
-      <section className="border-y border-[#c9a227]/10 bg-stone-900/50">
+      <section className="border-y border-[#c9a227]/10 bg-stone-100">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a]">Infrastructure</p>
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">Infrastructure</p>
           <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">World-Class Facility</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
@@ -104,7 +104,7 @@ export default function AboutPage() {
                 d: "Fumigated wooden bundles, marine insurance, CIF/FOB quotes in 24 hours.",
               },
             ].map((item) => (
-              <div key={item.t} className="card-hover overflow-hidden rounded-2xl border border-white/10 bg-stone-950">
+              <div key={item.t} className="card-hover overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
                 <div className="relative h-48">
                   <Image src={item.img} alt={item.t} fill className="object-cover" />
                 </div>
@@ -122,7 +122,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="order-2 lg:order-1">
-            <div className="overflow-hidden rounded-2xl border border-white/10">
+            <div className="overflow-hidden rounded-2xl border border-stone-200">
               <Image
                 src="/gallery/Granite_showroom_illuminated_at_._20261007200955.jpg"
                 alt="Showroom at night"
@@ -133,7 +133,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="order-1 lg:order-2">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a]">Visit Us</p>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">Visit Us</p>
             <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">Experience Our Showroom</h2>
             <p className="mt-5 text-stone-400 leading-relaxed">
               Our state-of-the-art showroom in Ongole displays 10,000+ slabs in

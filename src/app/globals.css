@@ -12,13 +12,13 @@ html {
 }
 
 body {
-  background: #0c0a09;
-  color: #fafaf9;
+  background: #faf9f7;
+  color: #1c1917;
   font-family: var(--font-sans);
 }
 
 .text-gold {
-  color: #d4af6a;
+  color: #8a6d1f;
 }
 .bg-gold {
   background-color: #c9a227;
@@ -26,9 +26,9 @@ body {
 
 .hero-texture {
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(201, 162, 39, 0.12), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.04), transparent 40%),
-    linear-gradient(180deg, rgba(0,0,0,0.7), rgba(12,10,9,0.95));
+    radial-gradient(circle at 20% 30%, rgba(201, 162, 39, 0.15), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(201, 162, 39, 0.08), transparent 40%),
+    linear-gradient(180deg, #fffef9, #faf8f3);
 }
 
 .card-hover {
@@ -36,7 +36,7 @@ body {
 }
 .card-hover:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgba(201, 162, 39, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(138, 109, 31, 0.25);
 }
 
 .gallery-item {
@@ -57,12 +57,11 @@ body {
   color: #000;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0c0a09;
+  background: #faf9f7;
 }
 ::-webkit-scrollbar-thumb {
   background: #c9a227;
@@ -72,7 +71,6 @@ body {
   background: #d4af6a;
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -99,22 +97,19 @@ body {
   animation: shimmer 3s infinite;
 }
 
-/* Gold gradient text */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #d4af6a, #c9a227, #d4af6a);
+  background: linear-gradient(135deg, #8a6d1f, #c9a227, #8a6d1f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glass effect */
 .glass {
-  background: rgba(12, 10, 9, 0.8);
+  background: rgba(250, 249, 247, 0.85);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(201, 162, 39, 0.15);
 }
 
-/* Image overlay gradient */
 .img-overlay {
-  background: linear-gradient(to top, rgba(12, 10, 9, 0.9) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(12, 10, 9, 0.85) 0%, transparent 60%);
 }
