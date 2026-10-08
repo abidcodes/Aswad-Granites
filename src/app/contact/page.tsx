@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import { Phone, Mail, MapPin, Send, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, CheckCircle } from "lucide-react";
+import { SectionLabel, MaskedLines, FadeUp } from "@/components/Reveal";
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
@@ -10,118 +10,88 @@ export default function ContactPage() {
 
   return (
     <div className="pt-20">
-      {/* Hero */}
-      <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
+      <section className="relative flex h-[46vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/gallery/Corporate_reception_area_granite_20261007200955.jpg"
-            alt="Contact"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/70 to-stone-950" />
+          <img src="/gallery/Corporate_reception_area_granite_20261007200955.jpg" alt="Reception" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-[var(--bg)]" />
         </div>
-        <div className="relative z-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a]">Get In Touch</p>
-          <h1 className="mt-2 text-4xl font-extrabold text-white sm:text-6xl">Contact Us</h1>
-          <p className="mx-auto mt-3 max-w-2xl px-4 text-stone-300">
-            Request a quote, book a showroom visit, or ask about export pricing.
-          </p>
+        <div className="relative z-10 px-4 text-center">
+          <SectionLabel>Get In Touch</SectionLabel>
+          <h1 className="mt-3 font-display text-6xl font-medium text-white sm:text-8xl">
+            <MaskedLines lines={["Contact Us"]} />
+          </h1>
+          <p className="mx-auto mt-4 max-w-xl text-white/75">Quotes, showroom visits and export pricing — reply within 24 hours.</p>
         </div>
       </section>
 
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2">
-        {/* Form */}
-        <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8">
-          {sent ? (
-            <div className="py-16 text-center">
-              <CheckCircle size={56} className="mx-auto text-green-600" />
-              <h2 className="mt-4 text-2xl font-bold">Request Received!</h2>
-              <p className="mt-2 text-sm text-stone-400">
-                Thanks {form.name || "there"} — our sales team will call {form.phone || "you"} within 24 hours.
-              </p>
-              <button
-                onClick={() => setSent(false)}
-                className="mt-6 rounded-full bg-stone-900/5 px-6 py-2.5 text-sm font-bold hover:bg-stone-900/10 transition-colors"
-              >
-                Send another
-              </button>
-            </div>
-          ) : (
-            <form
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-              className="space-y-5"
-            >
-              <h2 className="text-xl font-bold">Request a Quote</h2>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <input
-                  required
-                  placeholder="Full Name *"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="rounded-xl border border-stone-200 bg-stone-50 p-3.5 text-sm outline-none focus:border-[#c9a227] transition-colors"
-                />
-                <input
-                  required
-                  placeholder="Phone *"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="rounded-xl border border-stone-200 bg-stone-50 p-3.5 text-sm outline-none focus:border-[#c9a227] transition-colors"
-                />
+        <FadeUp>
+          <div className="rounded-3xl border border-line bg-raised p-6 sm:p-9">
+            {sent ? (
+              <div className="py-14 text-center">
+                <CheckCircle size={56} className="mx-auto text-green-600" />
+                <h2 className="mt-4 font-display text-3xl font-medium">Request received</h2>
+                <p className="mt-2 text-sm text-muted">Thanks {form.name || "there"} — our sales team will call {form.phone || "you"} within 24 hours.</p>
+                <button onClick={() => setSent(false)} className="mt-6 rounded-full border border-line px-6 py-2.5 text-sm font-bold hover:border-[var(--gold)]">Send another</button>
               </div>
-              <input
-                placeholder="City / Country"
-                value={form.city}
-                onChange={(e) => setForm({ ...form, city: e.target.value })}
-                className="w-full rounded-xl border border-stone-200 bg-stone-50 p-3.5 text-sm outline-none focus:border-[#c9a227] transition-colors"
-              />
-              <textarea
-                required
-                rows={5}
-                placeholder="Requirement — e.g. 2000 sq.ft Tan Brown 20mm polished slabs for villa in Hyderabad *"
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full rounded-xl border border-stone-200 bg-stone-50 p-3.5 text-sm outline-none focus:border-[#c9a227] transition-colors"
-              />
-              <button className="w-full rounded-full bg-gradient-to-r from-[#c9a227] to-[#d4af6a] py-4 font-bold text-black shadow-lg shadow-[#c9a227]/20 hover:scale-[1.02] transition-transform">
-                Send Enquiry
-              </button>
-            </form>
-          )}
-        </div>
-
-        {/* Info */}
+            ) : (
+              <form onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+                <h2 className="font-display text-3xl font-medium">Request a quote</h2>
+                <div className="mt-6 grid gap-x-6 sm:grid-cols-2">
+                  <div className="field">
+                    <input required id="name" placeholder=" " value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+                    <label htmlFor="name">Full name *</label>
+                  </div>
+                  <div className="field">
+                    <input required id="phone" placeholder=" " value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+                    <label htmlFor="phone">Phone *</label>
+                  </div>
+                </div>
+                <div className="field mt-2">
+                  <input id="city" placeholder=" " value={form.city} onChange={(e) => setForm({ ...form, city: e.target.value })} />
+                  <label htmlFor="city">City / Country</label>
+                </div>
+                <div className="field mt-2">
+                  <textarea required id="msg" rows={4} placeholder=" " value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+                  <label htmlFor="msg">Your requirement *</label>
+                </div>
+                <button className="mt-7 w-full rounded-full bg-[var(--gold)] py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-[1.02]">
+                  Send enquiry
+                </button>
+                <a
+                  href={`https://wa.me/919848000000?text=${encodeURIComponent(`Hi Aswad Granites, I'm ${form.name || "(name)"} (${form.phone || "(phone)"}). ${form.message || "Please share your price list."}`)}`}
+                  target="_blank" rel="noreferrer"
+                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] py-4 text-sm font-bold uppercase tracking-wider text-white transition-transform hover:scale-[1.02]"
+                >
+                  <MessageCircle size={18} /> WhatsApp us instead
+                </a>
+              </form>
+            )}
+          </div>
+        </FadeUp>
         <div className="space-y-4">
           {[
-            { icon: Phone, t: "Sales Desk", d: "+91 98480 00000 (9am–7pm IST)" },
+            { icon: Phone, t: "Sales Desk", d: "+91 98480 00000 · 9am–7pm IST" },
             { icon: Mail, t: "Email", d: "sales@aswadgranites.com" },
             { icon: MapPin, t: "Factory & Showroom", d: "Survey No. 234, Chimakurthy Road, Ongole, AP 523001" },
           ].map((c) => (
-            <div key={c.t} className="flex gap-4 rounded-2xl border border-stone-200 bg-white p-5">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#c9a227]/20 to-[#c9a227]/5 text-[#8a6d1f]">
-                <c.icon size={22} />
-              </span>
-              <div>
-                <div className="font-bold">{c.t}</div>
-                <div className="text-sm text-stone-400">{c.d}</div>
+            <FadeUp key={c.t}>
+              <div className="flex gap-4 rounded-2xl border border-line bg-raised p-5">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--gold)]/10 text-gilt"><c.icon size={22} /></span>
+                <div><div className="font-bold">{c.t}</div><div className="text-sm text-muted">{c.d}</div></div>
               </div>
-            </div>
+            </FadeUp>
           ))}
-          <div className="rounded-2xl border border-[#c9a227]/20 bg-gradient-to-br from-[#c9a227]/10 to-transparent p-5">
-            <b className="text-[#8a6d1f]">Bulk / Export?</b>
-            <p className="mt-1 text-sm text-stone-600">
-              Share drawings or BOQ on WhatsApp — we reply with CIF rates, slab photos and packing list within 24 hours.
-            </p>
-          </div>
-          <div className="overflow-hidden rounded-2xl border border-stone-200">
-            <Image
-              src="/gallery/Modern_villa_with_granite_exterior_20261007200955.jpg"
-              alt="Villa with granite exterior"
-              width={600}
-              height={300}
-              className="h-48 w-full object-cover"
-            />
-          </div>
+          <FadeUp>
+            <div className="overflow-hidden rounded-2xl border border-line">
+              <iframe
+                title="Aswad Granites location map"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=79.95%2C15.45%2C80.15%2C15.56&layer=mapnik&marker=15.5057%2C80.0499"
+                className="h-64 w-full"
+                loading="lazy"
+              />
+            </div>
+          </FadeUp>
         </div>
       </div>
     </div>

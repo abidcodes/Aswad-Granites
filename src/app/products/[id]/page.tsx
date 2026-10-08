@@ -2,130 +2,98 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { products } from "@/data/products";
-import { ArrowLeft, Check, MapPin, Ruler } from "lucide-react";
+import { ArrowLeft, Check, MapPin, Ruler, MessageCircle } from "lucide-react";
+import { SectionLabel, FadeUp } from "@/components/Reveal";
 
 export function generateStaticParams() {
   return products.map((p) => ({ id: p.id }));
 }
 
-export default async function ProductDetail({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const product = products.find((p) => p.id === id);
   if (!product) notFound();
 
-  const related = products
-    .filter((p) => p.category === product.category && p.id !== product.id)
-    .slice(0, 3);
+  const related = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3);
+  const wa = `https://wa.me/919848000000?text=${encodeURIComponent(`Hi Aswad Granites, please send me a sample of ${product.name} (${product.category}).`)}`;
 
   return (
     <div className="pt-20">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
-        <Link
-          href="/products"
-          className="inline-flex items-center gap-2 text-sm font-bold text-stone-400 hover:text-[#8a6d1f] transition-colors"
-        >
-          <ArrowLeft size={16} /> Back to Products
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+        <Link href="/products" className="u-link inline-flex items-center gap-2 text-sm font-bold text-muted hover:text-ink">
+          <ArrowLeft size={16} /> All stones
         </Link>
-
-        <div className="mt-6 grid gap-8 lg:grid-cols-2">
-          <div className="overflow-hidden rounded-2xl border border-stone-200">
-            <Image
-              src={product.image}
-              alt={product.name}
-              width={800}
-              height={600}
-              className="h-[400px] w-full object-cover lg:h-[500px]"
-            />
-          </div>
+        <div className="mt-8 grid gap-10 lg:grid-cols-2">
+          <FadeUp>
+            <div className="overflow-hidden rounded-3xl border border-line">
+              <img src={product.image} alt={product.name} className="h-[420px] w-full object-cover lg:h-[540px]" data-cursor="VIEW" />
+            </div>
+          </FadeUp>
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">
-              {product.category} Granite • {product.origin}
+            <SectionLabel>{product.category} Granite · {product.origin}</SectionLabel>
+            <h1 className="mt-3 font-display text-5xl font-medium sm:text-7xl">{product.name}</h1>
+            <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted">{product.description}</p>
+            <p className="mt-6 font-display text-5xl font-semibold text-gilt">
+              ₹{product.pricePerSqft}<span className="text-lg text-faint"> / sq.ft</span>
             </p>
-            <h1 className="mt-2 text-4xl font-extrabold sm:text-5xl">{product.name}</h1>
-            <p className="mt-4 text-lg text-stone-600">{product.description}</p>
-            <p className="mt-6 text-4xl font-extrabold text-[#8a6d1f]">
-              ₹{product.pricePerSqft}
-              <span className="text-lg font-medium text-stone-400"> / sq.ft</span>
-            </p>
-            <p className="text-xs text-stone-400">
-              Indicative factory rate. Final quote depends on size, finish & quantity.
-            </p>
-
+            <p className="mt-1 text-xs text-faint">Indicative factory rate · final quote on size, finish & quantity.</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {product.finish.map((f) => (
-                <span
-                  key={f}
-                  className="rounded-full border border-[#c9a227]/30 bg-[#c9a227]/10 px-4 py-1.5 text-sm font-bold text-[#8a6d1f]"
-                >
-                  {f}
-                </span>
+                <span key={f} className="rounded-full border border-[var(--gold)]/40 bg-[var(--gold)]/10 px-4 py-1.5 text-sm font-bold text-gilt">{f}</span>
               ))}
             </div>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-xl border border-stone-200 bg-white p-5">
-                <div className="flex items-center gap-2 text-sm font-bold">
-                  <Ruler size={18} className="text-[#8a6d1f]" /> Available Sizes
+            {/* specs */}
+            <div className="mt-8 overflow-hidden rounded-2xl border border-line">
+              {[
+                ["Origin", product.origin],
+                ["Category", `${product.category} granite`],
+                ["Finishes", product.finish.join(", ")],
+                ["Thickness", "15mm · 20mm · 30mm"],
+                ["Density", "2.65–2.75 g/cm³"],
+                ["Water absorption", "< 0.4%"],
+              ].map(([k, v], i) => (
+                <div key={k} className={`grid grid-cols-2 px-5 py-3 text-sm ${i % 2 ? "bg-sunken" : ""}`}>
+                  <span className="font-bold text-faint uppercase tracking-wider text-xs pt-0.5">{k}</span>
+                  <span>{v}</span>
                 </div>
-                <ul className="mt-3 space-y-2 text-sm text-stone-400">
-                  {product.sizes.map((s) => (
-                    <li key={s} className="flex gap-2">
-                      <Check size={16} className="mt-0.5 shrink-0 text-green-600" /> {s}
-                    </li>
-                  ))}
+              ))}
+            </div>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-line bg-raised p-5">
+                <div className="flex items-center gap-2 text-sm font-bold"><Ruler size={17} className="text-gilt" /> Sizes</div>
+                <ul className="mt-3 space-y-2 text-sm text-muted">
+                  {product.sizes.map((s) => <li key={s} className="flex gap-2"><Check size={15} className="mt-0.5 shrink-0 text-green-600" /> {s}</li>)}
                 </ul>
               </div>
-              <div className="rounded-xl border border-stone-200 bg-white p-5">
-                <div className="flex items-center gap-2 text-sm font-bold">
-                  <MapPin size={18} className="text-[#8a6d1f]" /> Best For
-                </div>
-                <ul className="mt-3 space-y-2 text-sm text-stone-400">
-                  {product.applications.map((a) => (
-                    <li key={a} className="flex gap-2">
-                      <Check size={16} className="mt-0.5 shrink-0 text-green-600" /> {a}
-                    </li>
-                  ))}
+              <div className="rounded-2xl border border-line bg-raised p-5">
+                <div className="flex items-center gap-2 text-sm font-bold"><MapPin size={17} className="text-gilt" /> Uses</div>
+                <ul className="mt-3 space-y-2 text-sm text-muted">
+                  {product.applications.map((a) => <li key={a} className="flex gap-2"><Check size={15} className="mt-0.5 shrink-0 text-green-600" /> {a}</li>)}
                 </ul>
               </div>
             </div>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="rounded-full bg-gradient-to-r from-[#c9a227] to-[#d4af6a] px-8 py-3.5 font-bold text-black shadow-lg shadow-[#c9a227]/20 hover:scale-105 transition-transform"
-              >
-                Enquire for {product.name}
-              </Link>
-              <Link
-                href="/products"
-                className="rounded-full border border-stone-300 px-8 py-3.5 font-bold hover:border-[#c9a227] transition-colors"
-              >
-                View All
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href={wa} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-105">
+                <MessageCircle size={17} /> Request Sample
+              </a>
+              <Link href="/contact" className="inline-flex items-center rounded-full border border-line px-8 py-3.5 text-sm font-bold uppercase tracking-wider hover:border-[var(--gold)] transition-colors">
+                Get Quote
               </Link>
             </div>
           </div>
         </div>
-
         {related.length > 0 && (
-          <div className="mt-16">
-            <h2 className="text-2xl font-bold">More {product.category} Granites</h2>
+          <div className="mt-20">
+            <h2 className="font-display text-4xl font-medium">Similar <span className="gold-text italic">stones</span></h2>
             <div className="mt-6 grid gap-5 sm:grid-cols-3">
               {related.map((r) => (
-                <Link
-                  key={r.id}
-                  href={`/products/${r.id}`}
-                  className="card-hover overflow-hidden rounded-2xl border border-stone-200 bg-white"
-                >
-                  <div className="relative h-48">
-                    <Image src={r.image} alt={r.name} fill className="object-cover" />
+                <Link key={r.id} href={`/products/${r.id}`} data-cursor="VIEW" className="group overflow-hidden rounded-2xl border border-line bg-raised transition-all hover:-translate-y-1.5">
+                  <div className="relative h-52 overflow-hidden">
+                    <img src={r.image} alt={r.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-108" />
                   </div>
                   <div className="p-4">
-                    <div className="font-bold">{r.name}</div>
-                    <div className="mt-1 text-sm font-bold text-[#8a6d1f]">₹{r.pricePerSqft}/sq.ft</div>
+                    <div className="font-display text-xl font-medium">{r.name}</div>
+                    <div className="mt-1 text-sm font-bold text-gilt">₹{r.pricePerSqft}/sq.ft</div>
                   </div>
                 </Link>
               ))}

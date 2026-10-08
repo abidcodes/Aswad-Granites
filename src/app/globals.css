@@ -1,115 +1,202 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --color-stone-950: #0c0a09;
-  --color-gold-400: #d4af6a;
-  --color-gold-500: #c9a227;
+@theme inline {
+  --color-base: var(--bg);
+  --color-raised: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--rule);
+  --color-gilt: var(--gold);
+  --color-gilt-deep: var(--gold-deep);
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+}
+
+:root {
+  --bg: #faf7f1;
+  --surface: #ffffff;
+  --sunken: #f1ebe0;
+  --ink: #1a1712;
+  --muted: #5c554b;
+  --faint: #8d8478;
+  --rule: #e3d9c8;
+  --gold: #b08a3e;
+  --gold-deep: #8a6d1f;
+}
+
+[data-theme="dark"] {
+  --bg: #0e0c09;
+  --surface: #171410;
+  --sunken: #0a0806;
+  --ink: #f3ede1;
+  --muted: #b3a893;
+  --faint: #7d7466;
+  --rule: #2b251c;
+  --gold: #d4af6a;
+  --gold-deep: #d4af6a;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 body {
-  background: #faf9f7;
-  color: #1c1917;
+  background: var(--bg);
+  color: var(--ink);
   font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
-.text-gold {
-  color: #8a6d1f;
-}
-.bg-gold {
-  background-color: #c9a227;
-}
-
-.hero-texture {
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(201, 162, 39, 0.15), transparent 45%),
-    radial-gradient(circle at 80% 70%, rgba(201, 162, 39, 0.08), transparent 40%),
-    linear-gradient(180deg, #fffef9, #faf8f3);
-}
-
-.card-hover {
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
-}
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgba(138, 109, 31, 0.25);
-}
-
-.gallery-item {
-  transition: transform 0.4s ease, opacity 0.3s ease;
-}
-.gallery-item:hover {
-  transform: scale(1.02);
-}
-
-.parallax-bg {
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+/* film grain */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
-  background: #c9a227;
+  background: var(--gold);
   color: #000;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 9px;
 }
 ::-webkit-scrollbar-track {
-  background: #faf9f7;
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #c9a227;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #d4af6a;
+  background: var(--gold);
+  border-radius: 6px;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* masked line reveal */
+.mask-line {
+  display: block;
+  overflow: hidden;
+}
+.mask-line > span {
+  display: block;
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+/* thin underline link */
+.u-link {
+  position: relative;
+}
+.u-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.u-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease forwards;
+/* marquee */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-x 40s linear infinite;
 }
 
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.1), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 3s infinite;
+/* slow hero zoom */
+@keyframes hero-zoom {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+.hero-zoom {
+  animation: hero-zoom 8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.gold-gradient-text {
-  background: linear-gradient(135deg, #8a6d1f, #c9a227, #8a6d1f);
+/* flowing export lines */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -24; }
+}
+.flow-line {
+  stroke-dasharray: 6 6;
+  animation: dash-flow 1.6s linear infinite;
+}
+
+/* gold gradient text */
+.gold-text {
+  background: linear-gradient(120deg, var(--gold) 20%, #f0d896 50%, var(--gold) 80%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
 }
 
-.glass {
-  background: rgba(250, 249, 247, 0.85);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(201, 162, 39, 0.15);
+/* floating label fields */
+.field {
+  position: relative;
+}
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 1.4rem 0 0.6rem;
+  font-size: 1rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.3s;
+}
+.field label {
+  position: absolute;
+  left: 0;
+  top: 1.4rem;
+  color: var(--faint);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 1px 0 0 var(--gold);
+}
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:focus + label,
+.field textarea:not(:placeholder-shown) + label {
+  top: 0.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 
-.img-overlay {
-  background: linear-gradient(to top, rgba(12, 10, 9, 0.85) 0%, transparent 60%);
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .hero-zoom,
+  .flow-line {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

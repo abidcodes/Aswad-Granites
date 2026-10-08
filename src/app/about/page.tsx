@@ -1,149 +1,123 @@
-import Image from "next/image";
-import { Mountain, Award, Users, Globe } from "lucide-react";
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { Mountain, Award, Users, Globe, BadgeCheck } from "lucide-react";
+import { SectionLabel, MaskedLines, FadeUp, WipeImage } from "@/components/Reveal";
+
+function Parallax({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["-8%", "8%"]);
+  return (
+    <div ref={ref} className={`overflow-hidden rounded-3xl border border-line ${className}`}>
+      <motion.img src={src} alt={alt} loading="lazy" style={{ y }} className="h-full w-full scale-[1.18] object-cover" />
+    </div>
+  );
+}
+
+const certs = ["ISO 9001:2015", "CE Certified Plant", "SGS Inspected", "Fumigation Licensed", "SEZ Exporter"];
 
 export default function AboutPage() {
   return (
     <div className="pt-20">
-      {/* Hero */}
-      <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+      <section className="relative flex h-[52vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="/gallery/ASWAD_GRANITE_INDUSTRIES_exterior_20261007200955.jpg"
-            alt="ASWAD Granite Industries"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/70 to-stone-950" />
+          <img src="/gallery/ASWAD_GRANITE_INDUSTRIES_exterior_20261007200955.jpg" alt="ASWAD Granite Industries" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-[var(--bg)]" />
         </div>
-        <div className="relative z-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a]">Since 1998</p>
-          <h1 className="mt-2 text-4xl font-extrabold text-white sm:text-6xl">About Us</h1>
-          <p className="mx-auto mt-3 max-w-2xl px-4 text-stone-300">
-            From a single quarry to 12 quarries and exports to 30+ countries.
-          </p>
+        <div className="relative z-10 px-4 text-center">
+          <SectionLabel>Since 1998</SectionLabel>
+          <h1 className="mt-3 font-display text-6xl font-medium text-white sm:text-8xl">
+            <MaskedLines lines={["About Us"]} />
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-white/75">From a single quarry to 12 quarries and exports to 30+ countries.</p>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">Our Story</p>
-            <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">
-              28 Years of Crafting Stone
+            <SectionLabel>Our Story</SectionLabel>
+            <h2 className="mt-3 font-display text-5xl font-medium leading-[1.02] sm:text-6xl">
+              28 years of <span className="gold-text italic">crafting stone</span>
             </h2>
-            <p className="mt-5 text-stone-400 leading-relaxed">
+            <p className="mt-6 leading-relaxed text-muted">
               Aswad Granites began in 1998 with a single quarry in Ongole, Andhra Pradesh.
-              Today, we own 12 captive quarries across South India and operate a
-              100,000 sq.ft processing plant with Italian Breton machinery.
+              Today we own 12 captive quarries across South India and run a 100,000 sq.ft
+              processing plant with Italian Breton machinery.
             </p>
-            <p className="mt-4 text-stone-400 leading-relaxed">
-              Our stone has been exported to 30+ countries, adorning luxury homes,
-              hotels, corporate offices, and monuments worldwide. We control every
-              step — from quarry to container — ensuring consistent color, precise
-              sizing, and honest pricing.
+            <p className="mt-4 leading-relaxed text-muted">
+              We control every step — quarry to container — for consistent colour,
+              precise sizing and honest pricing.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
-                { icon: Mountain, n: "12", l: "Captive Quarries" },
-                { icon: Award, n: "28+", l: "Years Experience" },
-                { icon: Users, n: "850+", l: "Team Members" },
-                { icon: Globe, n: "30+", l: "Export Countries" },
+                { icon: Mountain, n: "12", l: "Captive quarries" },
+                { icon: Award, n: "28+", l: "Years of craft" },
+                { icon: Users, n: "850+", l: "Team members" },
+                { icon: Globe, n: "30+", l: "Export countries" },
               ].map((s) => (
-                <div key={s.l} className="rounded-xl border border-stone-200 bg-white p-4">
-                  <s.icon size={24} className="text-[#8a6d1f]" />
-                  <div className="mt-2 text-2xl font-extrabold">{s.n}</div>
-                  <div className="text-xs text-stone-400">{s.l}</div>
-                </div>
+                <FadeUp key={s.l}>
+                  <div className="rounded-2xl border border-line bg-raised p-5">
+                    <s.icon size={24} className="text-gilt" />
+                    <div className="mt-2 font-display text-4xl font-semibold">{s.n}</div>
+                    <div className="text-xs uppercase tracking-[0.25em] text-faint">{s.l}</div>
+                  </div>
+                </FadeUp>
               ))}
             </div>
           </div>
-          <div className="space-y-4">
-            <div className="overflow-hidden rounded-2xl border border-stone-200">
-              <Image
-                src="/gallery/Granite_factory_interior_with_ma_20261007200955.jpg"
-                alt="Factory interior"
-                width={800}
-                height={500}
-                className="h-64 w-full object-cover"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl border border-stone-200">
-              <Image
-                src="/gallery/Team_standing_in_stone_showroom_20261007200955.jpg"
-                alt="Our team"
-                width={800}
-                height={500}
-                className="h-64 w-full object-cover"
-              />
-            </div>
+          <div className="space-y-5">
+            <Parallax src="/gallery/Granite_factory_interior_with_ma_20261007200955.jpg" alt="Factory interior" className="h-72" />
+            <Parallax src="/gallery/Team_standing_in_stone_showroom_20261007200955.jpg" alt="Our team in the showroom" className="h-72" />
           </div>
         </div>
       </section>
 
-      {/* Infrastructure */}
-      <section className="border-y border-[#c9a227]/10 bg-stone-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">Infrastructure</p>
-          <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">World-Class Facility</h2>
+      <section className="border-y border-line bg-sunken">
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6">
+          <SectionLabel>Infrastructure</SectionLabel>
+          <h2 className="mt-3 font-display text-5xl font-medium sm:text-6xl">World-class <span className="gold-text italic">facility</span></h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
-              {
-                img: "/gallery/Machine_cutting_granite_block_20261007200955.jpg",
-                t: "Cutting & Polishing",
-                d: "4 gangsaws, 2 Breton auto-polish lines, resin + epoxy treatment, CNC bridge cutters.",
-              },
-              {
-                img: "/gallery/Granite_slabs_stacked_and_organized_20261007200955.jpg",
-                t: "Ready Stock",
-                d: "10,000+ slabs in 2cm & 3cm, plus tiles 60x60, 60x30 and cut-to-size.",
-              },
-              {
-                img: "/gallery/Granite_slabs_packed_for_transport_20261007200955.jpg",
-                t: "Export Packing",
-                d: "Fumigated wooden bundles, marine insurance, CIF/FOB quotes in 24 hours.",
-              },
-            ].map((item) => (
-              <div key={item.t} className="card-hover overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
-                <div className="relative h-48">
-                  <Image src={item.img} alt={item.t} fill className="object-cover" />
+              { img: "/gallery/Machine_cutting_granite_block_20261007200955.jpg", t: "Cutting & Polishing", d: "4 gangsaws, 2 Breton auto-polish lines, resin + epoxy treatment, CNC bridge cutters." },
+              { img: "/gallery/Granite_slabs_stacked_and_organized_20261007200955.jpg", t: "Ready Stock", d: "10,000+ slabs in 2cm & 3cm — tiles 60×60, 60×30 and cut-to-size." },
+              { img: "/gallery/Granite_slabs_packed_for_transport_20261007200955.jpg", t: "Export Packing", d: "Fumigated wooden bundles, marine insurance, CIF/FOB quotes in 24 hours." },
+            ].map((c) => (
+              <FadeUp key={c.t}>
+                <div className="overflow-hidden rounded-2xl border border-line bg-base transition-transform duration-500 hover:-translate-y-2">
+                  <WipeImage src={c.img} alt={c.t} className="h-52" />
+                  <div className="p-5">
+                    <h3 className="font-display text-2xl font-medium">{c.t}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">{c.d}</p>
+                  </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-lg">{item.t}</h3>
-                  <p className="mt-2 text-sm text-stone-400">{item.d}</p>
-                </div>
-              </div>
+              </FadeUp>
+            ))}
+          </div>
+          <div className="mt-10 flex flex-wrap gap-3">
+            {certs.map((c) => (
+              <span key={c} className="inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/30 bg-[var(--gold)]/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-gilt">
+                <BadgeCheck size={14} /> {c}
+              </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Showroom */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div className="order-2 lg:order-1">
-            <div className="overflow-hidden rounded-2xl border border-stone-200">
-              <Image
-                src="/gallery/Granite_showroom_illuminated_at__20261007200955.jpg"
-                alt="Showroom at night"
-                width={800}
-                height={500}
-                className="h-80 w-full object-cover"
-              />
-            </div>
-          </div>
+      <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <Parallax src="/gallery/Granite_showroom_illuminated_at__20261007200955.jpg" alt="Showroom at night" className="h-96 order-2 lg:order-1" />
           <div className="order-1 lg:order-2">
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">Visit Us</p>
-            <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">Experience Our Showroom</h2>
-            <p className="mt-5 text-stone-400 leading-relaxed">
-              Our state-of-the-art showroom in Ongole displays 10,000+ slabs in
-              a stunning illuminated setting. Walk through aisles of premium granite,
-              compare colors side by side, and choose the perfect stone for your project.
+            <SectionLabel>Visit Us</SectionLabel>
+            <h2 className="mt-3 font-display text-5xl font-medium sm:text-6xl">Experience the <span className="gold-text italic">showroom</span></h2>
+            <p className="mt-6 leading-relaxed text-muted">
+              10,000+ slabs in a stunning illuminated setting. Compare colours side by
+              side and choose the perfect stone for your project.
             </p>
-            <p className="mt-4 text-stone-400 leading-relaxed">
-              Open Monday to Saturday, 9 AM to 7 PM. Free site measurement available
-              in Andhra Pradesh and Telangana.
-            </p>
+            <p className="mt-4 leading-relaxed text-muted">Open Monday to Saturday, 9 AM – 7 PM. Free site measurement in AP & Telangana.</p>
           </div>
         </div>
       </section>
