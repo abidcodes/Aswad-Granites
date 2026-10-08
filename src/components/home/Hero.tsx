@@ -39,7 +39,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex h-svh min-h-[640px] items-center justify-center overflow-hidden"
+      className="relative flex min-h-svh items-center justify-center overflow-hidden py-28"
       onMouseMove={(e) => {
         if (reduce) return;
         mx.set(e.clientX / window.innerWidth - 0.5);

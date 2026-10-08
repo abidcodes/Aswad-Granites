@@ -44,8 +44,8 @@ export default function Journey() {
   });
 
   return (
-    <section ref={ref} className="relative h-[380vh]">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+    <section ref={ref} className="relative lg:h-[380vh]">
+      <div className="flex items-center overflow-hidden py-16 lg:sticky lg:top-0 lg:h-screen lg:py-0">
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2">
           <div className="relative hidden h-[70vh] overflow-hidden rounded-3xl border border-line lg:block">
             {steps.map((s, i) => (
