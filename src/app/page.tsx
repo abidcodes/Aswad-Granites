@@ -29,10 +29,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-stone-950/60 via-stone-950/40 to-stone-950" />
         </div>
-        <div className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6">
-          <span className="inline-block rounded-full border border-[#c9a227]/40 bg-black/40 px-5 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a] backdrop-blur-sm">
-            Since 1998 • 28 Years of Excellence
-          </span>
+        <div className="relative z-10 mx-auto max-w-5xl px-4 pt-20 text-center sm:px-6 sm:pt-0">
           <h1 className="mt-6 text-5xl font-extrabold leading-tight text-white sm:text-7xl lg:text-8xl">
             Stone That
             <span className="block bg-gradient-to-r from-[#f0d896] via-[#d4af6a] to-[#f0d896] bg-clip-text text-transparent">Speaks Luxury</span>
