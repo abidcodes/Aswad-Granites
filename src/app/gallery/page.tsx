@@ -40,7 +40,7 @@ export default function GalleryPage() {
       <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/gallery/Granite_showroom_illuminated_at_._20261007200955.jpg"
+            src="/gallery/Granite_showroom_illuminated_at__20261007200955.jpg"
             alt="Gallery"
             fill
             className="object-cover"

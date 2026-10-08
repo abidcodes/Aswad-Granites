@@ -61,7 +61,7 @@ export default function AboutPage() {
           <div className="space-y-4">
             <div className="overflow-hidden rounded-2xl border border-stone-200">
               <Image
-                src="/gallery/Granite_factory_interior_with_ma._20261007200955.jpg"
+                src="/gallery/Granite_factory_interior_with_ma_20261007200955.jpg"
                 alt="Factory interior"
                 width={800}
                 height={500}
@@ -124,7 +124,7 @@ export default function AboutPage() {
           <div className="order-2 lg:order-1">
             <div className="overflow-hidden rounded-2xl border border-stone-200">
               <Image
-                src="/gallery/Granite_showroom_illuminated_at_._20261007200955.jpg"
+                src="/gallery/Granite_showroom_illuminated_at__20261007200955.jpg"
                 alt="Showroom at night"
                 width={800}
                 height={500}

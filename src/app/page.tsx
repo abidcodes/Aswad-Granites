@@ -121,7 +121,7 @@ export default function Home() {
       <section className="relative h-[50vh] overflow-hidden">
         <div
           className="parallax-bg absolute inset-0"
-          style={{ backgroundImage: "url(/gallery/Granite_showroom_illuminated_at_._20261007200955.jpg)" }}
+          style={{ backgroundImage: "url(/gallery/Granite_showroom_illuminated_at__20261007200955.jpg)" }}
         />
         <div className="absolute inset-0 bg-white/60" />
         <div className="relative z-10 flex h-full items-center justify-center">

@@ -136,7 +136,7 @@ export const products: Product[] = [
     pricePerSqft: 135,
     origin: "Andhra Pradesh",
     image:
-      "/gallery/Granite_surface_showing_mineral_…_20261007200955.jpg",
+      "/gallery/Granite_surface_showing_mineral__20261007200955.jpg",
     description:
       "Rich brown-black granite with tan mineral deposits. High demand in USA & Europe.",
     applications: ["Countertops", "Flooring", "Export Slabs", "Vanities"],
@@ -165,7 +165,7 @@ export const products: Product[] = [
     pricePerSqft: 110,
     origin: "Karnataka",
     image:
-      "/gallery/Granite_slabs_demonstrating_vein…_20261007200955.jpg",
+      "/gallery/Granite_slabs_demonstrating_vein_20261007200955.jpg",
     description:
       "Sandy-brown granite with wavy patterns. Earthy tone for farmhouses and resorts.",
     applications: ["Resort Flooring", "Patios", "Cladding", "Decks"],
@@ -236,7 +236,7 @@ export const products: Product[] = [
     pricePerSqft: 150,
     origin: "Andhra Pradesh",
     image:
-      "/gallery/Granite_showroom_interior_design…_20261007200955.jpg",
+      "/gallery/Granite_showroom_interior_design_20261007200955.jpg",
     description:
       "Dark green granite with light-green veins. Premium export stone for Europe.",
     applications: ["Export Slabs", "Countertops", "Bathrooms", "Showrooms"],
@@ -265,7 +265,7 @@ export const products: Product[] = [
     pricePerSqft: 130,
     origin: "Karnataka",
     image:
-      "/gallery/Granite_slabs_showing_polished_e…_20261007200955.jpg",
+      "/gallery/Granite_slabs_showing_polished_e_20261007200955.jpg",
     description:
       "Sunny yellow granite with brown speckles. Cheerful flooring for homes and schools.",
     applications: ["Home Flooring", "Schools", "Corridors", "Kitchen Slabs"],
