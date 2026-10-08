@@ -31,9 +31,9 @@ export default function ProductsPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-stone-950/70 to-stone-950" />
         </div>
         <div className="relative z-10 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#8a6d1f]">Our Granite Library</p>
-          <h1 className="mt-2 text-4xl font-extrabold sm:text-6xl">Products</h1>
-          <p className="mx-auto mt-3 max-w-2xl px-4 text-stone-400">
+          <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#d4af6a]">Our Granite Library</p>
+          <h1 className="mt-2 text-4xl font-extrabold text-white sm:text-6xl">Products</h1>
+          <p className="mx-auto mt-3 max-w-2xl px-4 text-stone-300">
             {products.length} signature stones — Black, White, Grey, Brown, Red, Blue, Green & Gold.
           </p>
         </div>
