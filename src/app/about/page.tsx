@@ -32,7 +32,7 @@ export default function AboutPage() {
           <h1 className="mt-3 font-display text-6xl font-medium text-white sm:text-8xl">
             <MaskedLines lines={["About Us"]} />
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-white/75">From a single quarry to 12 quarries and exports to 30+ countries.</p>
+          <p className="mx-auto mt-4 max-w-2xl text-white/75">Granite & marble dealers in Kondhwa Budruk, Pune, 4.2 star rated, 40+ colours.</p>
         </div>
       </section>
 
@@ -44,13 +44,13 @@ export default function AboutPage() {
               28 years of <span className="gold-text italic">crafting stone</span>
             </h2>
             <p className="mt-6 leading-relaxed text-muted">
-              Aswad Granites began in 1998 with a single quarry in Ongole, Andhra Pradesh.
-              Today we own 12 captive quarries across South India and run a 100,000 sq.ft
-              processing plant with Italian Breton machinery.
+              Aswad Granites has served Pune since 1998 from our Kondhwa Budruk
+              yard with 40+ granite & marble colours, cutting, polishing and
+              fitting under one roof.
             </p>
             <p className="mt-4 leading-relaxed text-muted">
-              We control every step — quarry to container — for consistent colour,
-              precise sizing and honest pricing.
+              Compare slabs side by side, get honest per-sq.ft pricing and free
+              site measurement anywhere in Pune.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-4">
               {[
@@ -83,7 +83,7 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
               { img: "/gallery/Machine_cutting_granite_block_20261007200955.jpg", t: "Cutting & Polishing", d: "4 gangsaws, 2 Breton auto-polish lines, resin + epoxy treatment, CNC bridge cutters." },
-              { img: "/gallery/Granite_slabs_stacked_and_organized_20261007200955.jpg", t: "Ready Stock", d: "10,000+ slabs in 2cm & 3cm — tiles 60×60, 60×30 and cut-to-size." },
+              { img: "/gallery/Granite_slabs_stacked_and_organized_20261007200955.jpg", t: "Ready Stock", d: "10,000+ slabs in 2cm & 3cm: tiles 60×60, 60×30 and cut-to-size." },
               { img: "/gallery/Granite_slabs_packed_for_transport_20261007200955.jpg", t: "Export Packing", d: "Fumigated wooden bundles, marine insurance, CIF/FOB quotes in 24 hours." },
             ].map((c) => (
               <FadeUp key={c.t}>
@@ -117,7 +117,7 @@ export default function AboutPage() {
               10,000+ slabs in a stunning illuminated setting. Compare colours side by
               side and choose the perfect stone for your project.
             </p>
-            <p className="mt-4 leading-relaxed text-muted">Open Monday to Saturday, 9 AM – 7 PM. Free site measurement in AP & Telangana.</p>
+            <p className="mt-4 leading-relaxed text-muted">Open Monday to Saturday, 9 AM to 7 PM. Free site measurement across Pune. Call +91 96865 72109.</p>
           </div>
         </div>
       </section>

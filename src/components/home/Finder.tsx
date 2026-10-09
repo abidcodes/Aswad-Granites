@@ -8,7 +8,6 @@ import { products } from "@/data/products";
 import { SectionLabel, FadeUp } from "../Reveal";
 
 const chips = [
-  { label: "Black", dot: "#1c1a17" },
   { label: "White", dot: "#e8e2d5" },
   { label: "Grey", dot: "#8d8d8d" },
   { label: "Brown", dot: "#7a4a2b" },
@@ -49,7 +48,7 @@ export default function Finder() {
             onClick={() => setColor(c.label)}
             className={`inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-bold transition-all ${
               color === c.label
-                ? "border-[var(--gold)] bg-[var(--gold)] text-black"
+                ? "border-[var(--gold)] bg-[var(--gold)] text-white"
                 : "border-line text-muted hover:border-[var(--gold)] hover:text-ink"
             }`}
           >
@@ -73,7 +72,7 @@ export default function Finder() {
                 <Link
                   href={`/products/${p.id}`}
                   data-cursor="VIEW"
-                  className="group block overflow-hidden rounded-2xl border border-line bg-raised"
+                  className="group block overflow-hidden border border-line bg-raised"
                 >
                   <div className="relative h-60 overflow-hidden">
                     <img src={p.image} alt={p.name} loading="lazy" className="h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110" />

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { galleryImages, galleryCategories } from "@/data/gallery";
+import { amitSlabs } from "@/data/amit";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { SectionLabel, MaskedLines } from "@/components/Reveal";
 
@@ -11,7 +12,8 @@ export default function GalleryPage() {
   const [cat, setCat] = useState<(typeof galleryCategories)[number]>("All");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
-  const filtered = galleryImages.filter((img) => cat === "All" || img.category === cat.toLowerCase());
+  const allImages = [...galleryImages, ...amitSlabs];
+  const filtered = allImages.filter((img) => cat === "All" || img.category === cat.toLowerCase());
   const close = useCallback(() => setLightbox(null), []);
   const goNext = useCallback(() => setLightbox((p) => (p !== null ? (p + 1) % filtered.length : null)), [filtered.length]);
   const goPrev = useCallback(() => setLightbox((p) => (p !== null ? (p - 1 + filtered.length) % filtered.length : null)), [filtered.length]);
@@ -39,7 +41,7 @@ export default function GalleryPage() {
           <h1 className="mt-3 font-display text-6xl font-medium text-white sm:text-8xl">
             <MaskedLines lines={["Gallery"]} />
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-white/75">{galleryImages.length}+ photos — factory, showroom, slabs and projects.</p>
+          <p className="mx-auto mt-4 max-w-xl text-white/75">{allImages.length}+ photos: factory, showroom, slabs and projects.</p>
         </div>
       </section>
 
@@ -49,7 +51,7 @@ export default function GalleryPage() {
             <button
               key={c}
               onClick={() => { setCat(c); setLightbox(null); }}
-              className={`rounded-full px-5 py-2 text-sm font-bold transition-all ${cat === c ? "bg-[var(--gold)] text-black" : "border border-line text-muted hover:border-[var(--gold)] hover:text-ink"}`}
+              className={`rounded-full px-5 py-2 text-sm font-bold transition-all ${cat === c ? "bg-[var(--gold)] text-white" : "border border-line text-muted hover:border-[var(--gold)] hover:text-ink"}`}
             >
               {c}
             </button>
@@ -57,7 +59,7 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* staggered grid — alternating offsets + hover dim siblings */}
+      {/* staggered grid with alternating offsets; hover dims siblings */}
       <section className="group/grid mx-auto max-w-7xl px-4 pb-24 sm:px-6">
         <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
           {filtered.map((img, i) => (
@@ -71,7 +73,7 @@ export default function GalleryPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
               <div className="absolute inset-x-0 bottom-0 translate-y-3 p-4 opacity-0 transition-all duration-300 hover:translate-y-0 hover:opacity-100">
                 <p className="text-sm font-medium text-white">{img.alt}</p>
-                <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#e8c876]">{img.category}</span>
+                <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#d7e5ff]">{img.category}</span>
               </div>
               <span className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white opacity-0 backdrop-blur-sm transition-opacity hover:opacity-100">
                 <ZoomIn size={16} />

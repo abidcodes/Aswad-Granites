@@ -26,11 +26,11 @@ export default function ExportMap() {
         <div>
           <SectionLabel>Global Export</SectionLabel>
           <h2 className="mt-3 font-display text-5xl font-medium leading-[1.02] sm:text-7xl">
-            From Ongole <span className="gold-text italic">to the world</span>
+            From Pune <span className="gold-text italic">to your home</span>
           </h2>
           <p className="mt-5 max-w-md leading-relaxed text-muted">
-            1,200+ containers a year leave our yard for ports across the globe —
-            FOB and CIF, documentation handled end to end.
+            Our Kondhwa Budruk yard serves homes and projects across Pune:
+            slabs, cutting, polishing and fitting under one roof.
           </p>
           <div className="mt-8 space-y-3">
             {lanes.map((l) => (
@@ -61,9 +61,9 @@ export default function ExportMap() {
                 <animate attributeName="r" values="8;18" dur="2s" repeatCount="indefinite" />
                 <animate attributeName="opacity" values="0.6;0" dur="2s" repeatCount="indefinite" />
               </circle>
-              <text x={ORIGIN.x - 28} y={ORIGIN.y + 28} fontSize="12" fill="var(--ink)" fontWeight="800">ONGOLE</text>
+              <text x={ORIGIN.x - 28} y={ORIGIN.y + 28} fontSize="12" fill="var(--ink)" fontWeight="800">PUNE</text>
             </svg>
-            <p className="px-2 pb-2 text-center text-xs uppercase tracking-[0.3em] text-faint">30+ countries served</p>
+            <p className="px-2 pb-2 text-center text-xs uppercase tracking-[0.3em] text-faint">Kondhwa Budruk · Pune</p>
           </div>
         </FadeUp>
       </div>

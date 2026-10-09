@@ -54,7 +54,7 @@ export default function Visualizer() {
               <img src={A.src} alt={A.label} draggable={false} className="h-full max-w-none object-cover" style={{ width: w }} />
             </div>
             <div className="absolute inset-y-0 z-10 w-[2px] bg-[var(--gold)]" style={{ left: `${pos}%` }}>
-              <span className="absolute top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--gold)] text-black shadow-xl">
+              <span className="absolute top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[var(--gold)] text-white shadow-xl">
                 <ChevronsLeftRight size={20} />
               </span>
             </div>
@@ -67,7 +67,7 @@ export default function Visualizer() {
               value={pos}
               onChange={(e) => setPos(Number(e.target.value))}
               aria-label="Compare installations"
-              className="absolute inset-x-0 bottom-4 mx-auto w-2/3 accent-[#c9a227]"
+              className="absolute inset-x-0 bottom-4 mx-auto w-2/3 accent-[#143a75]"
             />
           </div>
         </FadeUp>

@@ -110,7 +110,7 @@ export const products: Product[] = [
     image:
       "/gallery/Charcoal_granite_slabs_displayed_20261007200955.jpg",
     description:
-      "Medium-grey granite with silver flecks. Outdoor-safe — ideal for paving and facades.",
+      "Medium-grey granite with silver flecks. Outdoor-safe, ideal for paving and facades.",
     applications: ["Paving", "Facades", "Flooring", "Landscaping"],
     sizes: ["Slabs", "Pavers 60x30", "Kerbs"],
   },

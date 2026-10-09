@@ -46,12 +46,12 @@ export default function Cursor() {
         animate={{
           width: label ? 72 : hovering ? 48 : 32,
           height: label ? 72 : hovering ? 48 : 32,
-          backgroundColor: label ? "rgba(176,138,62,0.9)" : "rgba(176,138,62,0)",
+          backgroundColor: label ? "rgba(20,58,117,0.9)" : "rgba(20,58,117,0)",
         }}
         transition={{ type: "spring", stiffness: 300, damping: 25 }}
       >
         {label && (
-          <span className="text-[11px] font-bold tracking-[0.2em] text-black">{label}</span>
+          <span className="text-[11px] font-bold tracking-[0.2em] text-white">{label}</span>
         )}
       </motion.div>
     </>
