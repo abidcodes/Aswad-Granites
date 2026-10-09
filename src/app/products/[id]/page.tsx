@@ -49,7 +49,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
                 ["Category", `${product.category} granite`],
                 ["Finishes", product.finish.join(", ")],
                 ["Thickness", "15mm · 20mm · 30mm"],
-                ["Density", "2.65–2.75 g/cm³"],
+                ["Density", "2.65 to 2.75 g/cm³"],
                 ["Water absorption", "< 0.4%"],
               ].map(([k, v], i) => (
                 <div key={k} className={`grid grid-cols-2 px-5 py-3 text-sm ${i % 2 ? "bg-sunken" : ""}`}>
@@ -73,7 +73,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
               </div>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href={wa} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-105">
+              <a href={wa} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-transform hover:scale-105">
                 <MessageCircle size={17} /> Request Sample
               </a>
               <Link href="/contact" className="inline-flex items-center rounded-full border border-line px-8 py-3.5 text-sm font-bold uppercase tracking-wider hover:border-[var(--gold)] transition-colors">

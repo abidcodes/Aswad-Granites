@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import { motion, AnimatePresence, useScroll, useSpring, useMotionValueEvent } from "framer-motion";
-import { Menu, X, Sun, Moon, ArrowUpRight } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const links = [
   { href: "/", label: "Home" },
@@ -17,77 +16,47 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const { scrollY, scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 25 });
+  const [scrolled, setScrolled] = useState(false);
 
-  useMotionValueEvent(scrollY, "change", (v) => {
-    const prev = scrollY.getPrevious() ?? 0;
-    setHidden(v > prev && v > 220 && !open);
-  });
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
-      {/* scroll progress */}
-      <motion.div
-        className="fixed inset-x-0 top-0 z-[120] h-[2px] origin-left bg-[var(--gold)]"
-        style={{ scaleX: progress }}
-      />
-      <motion.header
-        animate={{ y: hidden ? "-100%" : "0%" }}
-        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-x-0 top-0 z-[110] border-b border-line bg-base/85 backdrop-blur-xl"
+      <header
+        className={`fixed inset-x-0 top-0 z-[110] transition-all duration-500 ${
+          scrolled
+            ? "border-b border-line bg-[#f7f6f2]/85 backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent"
+        }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
-          <Link href="/" className="flex items-center gap-3">
-            <span className="block h-11 w-11 overflow-hidden rounded-xl shadow-md">
-              <Image src="/logo.jpg" alt="ASWAD Granite Industries" width={44} height={44} className="h-full w-full object-cover" />
-            </span>
-            <span className="leading-tight">
-              <span className="block text-xl font-extrabold tracking-wide text-ink">
-                ASWAD <span className="text-gilt">GRANITES</span>
-              </span>
-              <span className="block text-[10px] uppercase tracking-[0.3em] text-muted">
-                Premium Natural Stone
-              </span>
-            </span>
+        <div className="mx-auto flex h-20 max-w-[1560px] items-center justify-between px-5 sm:px-10">
+          <Link href="/" aria-label="Aswad Granites — home">
+            <Image src="/logo-black.png" alt="ASWAD Granites" width={360} height={180} priority className="h-12 w-auto" />
           </Link>
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-9 lg:flex">
             {links.map((l) => (
-              <Link key={l.href} href={l.href} className="u-link text-sm font-medium text-muted hover:text-ink transition-colors">
+              <Link key={l.href} href={l.href} className="u-link text-[12px] font-bold uppercase tracking-[0.22em] text-muted hover:text-ink transition-colors">
                 {l.label}
               </Link>
             ))}
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-muted hover:text-gilt hover:border-[var(--gold)] transition-colors"
-            >
-              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-            </button>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-1 rounded-full bg-[var(--gold)] px-6 py-2.5 text-sm font-bold text-black transition-transform hover:scale-105"
+              className="group inline-flex items-center gap-2 rounded-sm bg-[var(--gold)] px-7 py-3 text-[12px] font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-[var(--gold-deep)]"
             >
               Get Quote
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </nav>
-          <div className="flex items-center gap-2 lg:hidden">
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-muted"
-            >
-              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-            </button>
-            <button onClick={() => setOpen(true)} aria-label="Open menu" className="p-2 text-ink">
-              <Menu size={24} />
-            </button>
-          </div>
+          <button onClick={() => setOpen(true)} aria-label="Open menu" className="p-2 text-ink lg:hidden">
+            <Menu size={26} />
+          </button>
         </div>
-      </motion.header>
+      </header>
 
       {/* fullscreen menu */}
       <AnimatePresence>
@@ -97,17 +66,15 @@ export default function Header() {
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[130] flex flex-col bg-sunken"
+            className="fixed inset-0 z-[130] flex flex-col bg-[#f7f6f2]"
           >
-            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
-              <span className="text-xl font-extrabold tracking-wide text-ink">
-                ASWAD <span className="text-gilt">GRANITES</span>
-              </span>
+            <div className="mx-auto flex h-20 w-full max-w-[1560px] items-center justify-between px-5 sm:px-10">
+              <Image src="/logo.png" alt="ASWAD Granites" width={360} height={180} className="h-12 w-auto" />
               <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 text-ink">
                 <X size={28} />
               </button>
             </div>
-            <nav className="flex flex-1 flex-col justify-center gap-2 px-8">
+            <nav className="flex flex-1 flex-col justify-center gap-1 px-8">
               {links.map((l, i) => (
                 <motion.div
                   key={l.href}
@@ -118,7 +85,7 @@ export default function Header() {
                   <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="font-display text-5xl font-medium text-ink hover:text-gilt transition-colors sm:text-6xl"
+                    className="font-display text-5xl font-medium uppercase text-ink hover:text-gilt transition-colors sm:text-6xl"
                   >
                     {l.label}
                   </Link>
@@ -132,9 +99,9 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setOpen(false)}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--gold)] px-8 py-4 font-bold text-black"
+                  className="mt-8 inline-flex items-center gap-2 rounded-sm bg-[var(--gold)] px-9 py-4 text-[12px] font-bold uppercase tracking-[0.2em] text-white"
                 >
-                  Get Quote <ArrowUpRight size={18} />
+                  Get Quote <ArrowUpRight size={17} />
                 </Link>
               </motion.div>
             </nav>

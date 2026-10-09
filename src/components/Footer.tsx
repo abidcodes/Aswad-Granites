@@ -4,23 +4,43 @@ import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from "lucide-react
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-sunken">
-      <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6">
-        <div className="grid gap-12 pb-14 md:grid-cols-4">
-          <div>
-            <div className="flex items-center gap-3">
-              <span className="block h-10 w-10 overflow-hidden rounded-xl">
-                <Image src="/logo.jpg" alt="ASWAD Granite Industries" width={40} height={40} className="h-full w-full object-cover" />
-              </span>
-              <span className="text-xl font-extrabold text-ink">
-                ASWAD <span className="text-gilt">GRANITES</span>
-              </span>
-            </div>
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
-              Premium granite quarrying, processing and worldwide export since
-              1998. 40+ colors, 12 quarries, 1 promise — lasting stone.
+    <footer className="border-t border-line bg-base">
+      <div className="mx-auto max-w-[1560px] px-5 pb-10 pt-16 sm:px-10">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <Image src="/logo-black.png" alt="ASWAD Granites" width={400} height={200} className="h-16 w-auto" />
+            <p className="mt-6 max-w-sm font-display text-2xl font-medium italic leading-snug text-muted">
+              Surfaces that define space. Since 1998.
             </p>
-            <div className="mt-6 flex gap-3">
+          </div>
+          <div className="md:col-span-2">
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.3em] text-faint">Explore</h4>
+            <ul className="mt-5 space-y-3 text-sm font-bold uppercase tracking-[0.14em] text-ink">
+              <li><Link href="/products" className="u-link">Products</Link></li>
+              <li><Link href="/gallery" className="u-link">Gallery</Link></li>
+              <li><Link href="/about" className="u-link">About</Link></li>
+              <li><Link href="/contact" className="u-link">Contact</Link></li>
+            </ul>
+          </div>
+          <div className="md:col-span-3">
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.3em] text-faint">Visit</h4>
+            <ul className="mt-5 space-y-3 text-sm text-muted">
+              <li className="flex gap-3"><MapPin size={16} className="mt-0.5 shrink-0 text-gilt" /> Kondhwa Budruk, Pune</li>
+              <li className="flex gap-3"><Phone size={16} className="shrink-0 text-gilt" /> <a href="tel:+919686572109" className="font-bold tracking-wide text-ink">+91 96865 72109</a></li>
+              <li className="flex gap-3"><Mail size={16} className="shrink-0 text-gilt" /> sales@aswadgranites.com</li>
+            </ul>
+            <a
+              href="https://maps.app.goo.gl/VbS7wQPESCYe2hWV8"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-block border-b border-ink pb-1 text-[11px] font-extrabold uppercase tracking-[0.25em] text-ink"
+            >
+              Get Directions →
+            </a>
+          </div>
+          <div className="md:col-span-2">
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.3em] text-faint">Follow</h4>
+            <div className="mt-5 flex gap-3">
               {[
                 { icon: Facebook, label: "Facebook" },
                 { icon: Instagram, label: "Instagram" },
@@ -36,42 +56,14 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-          </div>
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gilt">Company</h4>
-            <ul className="mt-4 space-y-3 text-sm text-muted">
-              <li><Link href="/about" className="u-link hover:text-ink">About Us</Link></li>
-              <li><Link href="/products" className="u-link hover:text-ink">Products</Link></li>
-              <li><Link href="/gallery" className="u-link hover:text-ink">Gallery</Link></li>
-              <li><Link href="/contact" className="u-link hover:text-ink">Get Quote</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gilt">Products</h4>
-            <ul className="mt-4 space-y-3 text-sm text-muted">
-              <li>Granite Slabs</li>
-              <li>Floor Tiles &amp; Cut-to-Size</li>
-              <li>Kitchen Countertops</li>
-              <li>Monuments &amp; Landscaping</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-gilt">Contact</h4>
-            <ul className="mt-4 space-y-3 text-sm text-muted">
-              <li className="flex gap-3"><Phone size={16} className="shrink-0 text-gilt" /> +91 98480 00000</li>
-              <li className="flex gap-3"><Mail size={16} className="shrink-0 text-gilt" /> sales@aswadgranites.com</li>
-              <li className="flex gap-3"><MapPin size={16} className="shrink-0 text-gilt" /> Ongole, Andhra Pradesh, India</li>
-            </ul>
+            <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.2em] text-faint">
+              4.2 ★ Google Rating
+            </p>
           </div>
         </div>
-        {/* giant wordmark */}
-        <div className="overflow-hidden border-t border-line py-8">
-          <div className="gold-text text-center font-display text-[18vw] font-semibold leading-none tracking-tight md:text-[13rem]">
-            ASWAD
-          </div>
-        </div>
-        <div className="border-t border-line py-6 text-center text-xs text-faint">
-          © {new Date().getFullYear()} Aswad Granite Industries, Ongole — Premium Natural Stone. All rights reserved.
+        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-line pt-6 text-[11px] uppercase tracking-[0.25em] text-faint sm:flex-row">
+          <span>© {new Date().getFullYear()} Aswad Granites</span>
+          <span>Granite & Marble Dealers, Pune</span>
         </div>
       </div>
     </footer>

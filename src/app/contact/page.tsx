@@ -20,7 +20,7 @@ export default function ContactPage() {
           <h1 className="mt-3 font-display text-6xl font-medium text-white sm:text-8xl">
             <MaskedLines lines={["Contact Us"]} />
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-white/75">Quotes, showroom visits and export pricing — reply within 24 hours.</p>
+          <p className="mx-auto mt-4 max-w-xl text-white/75">Quotes, showroom visits and export pricing. We reply within 24 hours.</p>
         </div>
       </section>
 
@@ -31,7 +31,7 @@ export default function ContactPage() {
               <div className="py-14 text-center">
                 <CheckCircle size={56} className="mx-auto text-green-600" />
                 <h2 className="mt-4 font-display text-3xl font-medium">Request received</h2>
-                <p className="mt-2 text-sm text-muted">Thanks {form.name || "there"} — our sales team will call {form.phone || "you"} within 24 hours.</p>
+                <p className="mt-2 text-sm text-muted">Thanks {form.name || "there"}, our sales team will call {form.phone || "you"} within 24 hours.</p>
                 <button onClick={() => setSent(false)} className="mt-6 rounded-full border border-line px-6 py-2.5 text-sm font-bold hover:border-[var(--gold)]">Send another</button>
               </div>
             ) : (
@@ -55,11 +55,11 @@ export default function ContactPage() {
                   <textarea required id="msg" rows={4} placeholder=" " value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
                   <label htmlFor="msg">Your requirement *</label>
                 </div>
-                <button className="mt-7 w-full rounded-full bg-[var(--gold)] py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-[1.02]">
+                <button className="mt-7 w-full rounded-full bg-[var(--gold)] py-4 text-sm font-bold uppercase tracking-wider text-white transition-transform hover:scale-[1.02]">
                   Send enquiry
                 </button>
                 <a
-                  href={`https://wa.me/919848000000?text=${encodeURIComponent(`Hi Aswad Granites, I'm ${form.name || "(name)"} (${form.phone || "(phone)"}). ${form.message || "Please share your price list."}`)}`}
+                  href={`https://wa.me/919686572109?text=${encodeURIComponent(`Hi Aswad Granites, I'm ${form.name || "(name)"} (${form.phone || "(phone)"}). ${form.message || "Please share your price list."}`)}`}
                   target="_blank" rel="noreferrer"
                   className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] py-4 text-sm font-bold uppercase tracking-wider text-white transition-transform hover:scale-[1.02]"
                 >
@@ -71,9 +71,9 @@ export default function ContactPage() {
         </FadeUp>
         <div className="space-y-4">
           {[
-            { icon: Phone, t: "Sales Desk", d: "+91 98480 00000 · 9am–7pm IST" },
+            { icon: Phone, t: "Sales Desk", d: "+91 96865 72109 · 9am to 7pm IST" },
             { icon: Mail, t: "Email", d: "sales@aswadgranites.com" },
-            { icon: MapPin, t: "Factory & Showroom", d: "Survey No. 234, Chimakurthy Road, Ongole, AP 523001" },
+            { icon: MapPin, t: "Showroom", d: "Kondhwa Budruk, Pune, Granite & Marble Dealers · 4.2 star" },
           ].map((c) => (
             <FadeUp key={c.t}>
               <div className="flex gap-4 rounded-2xl border border-line bg-raised p-5">
@@ -86,7 +86,7 @@ export default function ContactPage() {
             <div className="overflow-hidden rounded-2xl border border-line">
               <iframe
                 title="Aswad Granites location map"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=79.95%2C15.45%2C80.15%2C15.56&layer=mapnik&marker=15.5057%2C80.0499"
+                src="https://www.google.com/maps?q=Kondhwa+Budruk,+Pune&output=embed"
                 className="h-64 w-full"
                 loading="lazy"
               />

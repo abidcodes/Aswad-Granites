@@ -1,11 +1,13 @@
 import Hero from "@/components/home/Hero";
-import Collections from "@/components/home/Collections";
+import ArtOfStone from "@/components/home/ArtOfStone";
+import Materials from "@/components/home/Materials";
+import NavyFeature from "@/components/home/NavyFeature";
 import Finder from "@/components/home/Finder";
-import Visualizer from "@/components/home/Visualizer";
-import Journey from "@/components/home/Journey";
+import MasonryGallery from "@/components/home/MasonryGallery";
+import EditorialAbout from "@/components/home/EditorialAbout";
 import Estimator from "@/components/home/Estimator";
-import ExportMap from "@/components/home/ExportMap";
-import { Story, Testimonials, Faq, ShowroomCta } from "@/components/home/Story";
+import EditorialCta from "@/components/home/EditorialCta";
+import { Testimonials, Faq } from "@/components/home/Story";
 import { Marquee } from "@/components/Reveal";
 
 export default function Home() {
@@ -14,26 +16,26 @@ export default function Home() {
       <Hero />
       <Marquee
         items={[
-          "ISO 9001:2015 Certified",
-          "1200+ containers a year",
-          "Italian Breton lines",
-          "Pan-India logistics",
-          "40+ stone colors",
-          "30+ export countries",
+          "Premium Natural Stone",
+          "Kondhwa Budruk, Pune",
+          "40+ Granite Colours",
+          "Custom Countertops",
+          "4.2 ★ Google Rating",
+          "Call +91 96865 72109",
         ]}
       />
-      <div id="collections">
-        <Collections />
+      <ArtOfStone />
+      <Materials />
+      <NavyFeature />
+      <div className="pt-48 lg:pt-56">
+        <Finder />
       </div>
-      <Finder />
-      <Visualizer />
-      <Journey />
+      <MasonryGallery />
+      <EditorialAbout />
       <Estimator />
-      <ExportMap />
-      <Story />
       <Testimonials />
       <Faq />
-      <ShowroomCta />
+      <EditorialCta />
     </div>
   );
 }
